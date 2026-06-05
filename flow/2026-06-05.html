@@ -1,7 +1,85 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>全球 AI 鏈同步回檔、記憶體爆量出貨 — 看懂金流 × 週末快充</title>
-<link rel="stylesheet" href="../assets/site.css">
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.cols>table{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
 <meta name="x-kind" content="flow">
 <meta name="x-title" content="全球 AI 鏈同步回檔、記憶體爆量出貨">
 <meta name="x-deck" content="6/5（五）收盤｜錢沒離場，是在族群間換手——流出記憶體/載板/AI 組裝，轉進被動元件/成熟製程/機器人題材。">
