@@ -49,7 +49,9 @@ thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
 tbody tr:nth-child(even) td{background:var(--stripe);}
 tbody tr:hover td{background:#F1ECE3;}
 .cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
-.cols>table{flex:0 1 auto;margin:1em 0;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
 code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
 font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
 .tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
@@ -141,7 +143,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 </ul>
 <p><strong>台灣記憶體受惠的真正原因，不是台灣會做 HBM，而是「大廠都不做傳統記憶體了」</strong>——傳統 DRAM／NAND 的工業、車用、消費訂單，全溢出到台廠手上，遇上漲價，手中庫存就一路增值。</p>
 <h2>整條記憶體產業鏈，誰受惠？</h2>
-<table>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: left;">位置</th>
@@ -166,7 +168,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: left;">握有低價庫存，報價逐季墊高、毛利跳躍式成長；通路代理受惠伺服器業者瘋搶 HBM 與企業級 SSD</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <blockquote>
 <p>隨 NVIDIA Vera Rubin 平台推出，記憶體不再只是儲存空間，而是與 GPU 封裝在一起的「運算核心」——封裝技術（CoWoS-L、玻璃基板）成為決定效能的關鍵。這也是為什麼「載板、材料、封測」會跟著記憶體一起熱。</p>
 </blockquote>
@@ -181,14 +183,15 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <li><strong>至上 8112</strong>：不是模組廠，是 <strong>IC 通路代理</strong>（三星在台最大代理商之一），受惠伺服器業者瘋搶 HBM 與企業級 SSD。特性是<strong>營收體量大、毛利薄</strong>，本質與上面五家模組廠不同，看的是「出貨量與代理線」。</li>
 </ul>
 <h3>營收會說話：代表廠最新年報（FY2025）</h3>
-<table>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: left;">公司</th>
 <th style="text-align: left;">定位</th>
 <th style="text-align: right;">2025 EPS</th>
 <th style="text-align: right;">2024 EPS</th>
-<th style="text-align: right;">EPS 年增</th>
+<th style="text-align: right;">EPS YoY</th>
+<th style="text-align: right;">營收 YoY</th>
 <th style="text-align: right;">2025 淨利</th>
 </tr>
 </thead>
@@ -199,6 +202,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: right;">約 6.7</td>
 <td style="text-align: right;">2.17</td>
 <td style="text-align: right;"><strong>+208%</strong></td>
+<td style="text-align: right;">+42%</td>
 <td style="text-align: right;">8.6 億</td>
 </tr>
 <tr>
@@ -207,6 +211,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: right;">12.94</td>
 <td style="text-align: right;">5.39</td>
 <td style="text-align: right;"><strong>+140%</strong></td>
+<td style="text-align: right;">+70%</td>
 <td style="text-align: right;">55.7 億</td>
 </tr>
 <tr>
@@ -215,6 +220,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: right;">約 13.3</td>
 <td style="text-align: right;">6.30</td>
 <td style="text-align: right;"><strong>+110%</strong></td>
+<td style="text-align: right;">+2%</td>
 <td style="text-align: right;">11.1 億</td>
 </tr>
 <tr>
@@ -223,6 +229,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: right;">21.57</td>
 <td style="text-align: right;">11.79</td>
 <td style="text-align: right;"><strong>+83%</strong></td>
+<td style="text-align: right;">+60%</td>
 <td style="text-align: right;">20.4 億</td>
 </tr>
 <tr>
@@ -231,6 +238,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: right;">約 4.8</td>
 <td style="text-align: right;">3.37</td>
 <td style="text-align: right;"><strong>+43%</strong></td>
+<td style="text-align: right;">-4%</td>
 <td style="text-align: right;">26.8 億</td>
 </tr>
 <tr>
@@ -240,11 +248,13 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <blockquote>
-<p>數據：yfinance 各公司 FY2025 年報（合併稅後），EPS 為稀釋後；2025 EPS 標「約」者為以淨利／股本推估。威剛數據源暫缺，之後補上。<strong>至上是通路代理，淨利體量大但毛利薄，和模組廠不可直接相比。重點不在絕對數字，而在「年增的方向與幅度」——這就是金流追逐『營收創高』的底氣。</strong></p>
+<p>數據：yfinance 各公司 FY2025 年報（合併稅後），EPS 為稀釋後；2025 EPS 標「約」者為以淨利／股本推估。威剛數據源暫缺，之後補上。</p>
+<p><strong>看點：營收 YoY vs EPS YoY 的落差就是「漲價財」的證據</strong>——十銓營收只 +2%、至上甚至 -4%，但獲利照樣跳 +110%／+43%，代表不是靠多賣，而是<strong>同樣的貨賣更貴、毛利擴張</strong>。創見、宜鼎則是營收（+70%／+60%）與獲利同步噴，量價齊揚。至上是通路代理、毛利薄，和模組廠不可直接相比。<strong>重點不在絕對數字，而在年增的方向與幅度。</strong></p>
 </blockquote>
 <h2>龍頭的龍頭：SK 海力士營收創高在「好」什麼？</h2>
 <p>陪大家看一眼源頭龍頭的成績單（公開資訊整理）：</p>

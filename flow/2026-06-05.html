@@ -49,7 +49,9 @@ thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
 tbody tr:nth-child(even) td{background:var(--stripe);}
 tbody tr:hover td{background:#F1ECE3;}
 .cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
-.cols>table{flex:0 1 auto;margin:1em 0;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
 code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
 font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
 .tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
@@ -97,7 +99,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 </blockquote>
 <h2>台股成交值 TOP20（6/5）</h2>
 <div class="cols">
-<table>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: center;">#</th>
@@ -179,8 +181,8 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: center;">265 億</td>
 </tr>
 </tbody>
-</table>
-<table>
+</table></div>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: center;">#</th>
@@ -262,7 +264,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: center;">129 億</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 <blockquote>
 <p>記憶體三檔（南亞科#4、華邦電#5、群聯#7）擠進前 7，卻全大跌 5～10%＝典型<strong>爆量出貨</strong>，今天最關鍵的訊號。</p>
@@ -285,7 +287,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <blockquote>
 <p>「外資／投信」＝該族群淨買賣超（張）；解讀點出族群內個股，故個股數字會與族群合計不同。</p>
 </blockquote>
-<table>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: left;">族群（合計）</th>
@@ -320,10 +322,10 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: left;">聯發科 外資 +414／投信 -109；方向相反</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>白話</strong>：外資今天「全面提款」權值（台積電、記憶體、載板、IC 通路都砍），但<strong>投信反手大接台積電（+2,900）與伺服器組裝</strong>。外資投信打架＝方向未明，更不該追高，看接下來幾天誰對。</p>
 <h2>美股（6/4 收盤·台股 6/5 隔夜場）</h2>
-<table>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: left;">指數/個股</th>
@@ -358,10 +360,10 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: left;">逆勢紅</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>看法</strong>：博通其實<strong>營收創高、Q3 估年增約 +84%</strong>，只是 AI 展望「不夠驚艷」就被殺 12.6%——「好消息不夠好＝利空」的高檔震盪典型。這是隔夜砍半導體、壓著台股 AI 鏈的源頭。但輝達逆勢紅＋資金輪動到其他類股，是換手不是崩盤。</p>
 <h2>日股（6/5 同日）</h2>
-<table>
+<div class="tw"><table>
 <thead>
 <tr>
 <th style="text-align: left;">標的</th>
@@ -391,7 +393,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: left;">-1%</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>白話</strong>：日股被「博通拖累半導體＋美伊停火脆弱」壓著，半導體設備領跌。美國博通、日本設備、台灣 AI 鏈，今天同一條鏈一起回檔。</p>
 <blockquote>
 <p>跨市場一致訊號：記憶體在美（美光/閃迪）、台（南亞科/華邦電爆量）、日韓設備全在賣——這波是 AI/半導體的<strong>全球同步獲利了結</strong>，不是台股單獨現象。</p>

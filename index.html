@@ -49,7 +49,9 @@ thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
 tbody tr:nth-child(even) td{background:var(--stripe);}
 tbody tr:hover td{background:#F1ECE3;}
 .cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
-.cols>table{flex:0 1 auto;margin:1em 0;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
 code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
 font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
 .tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
