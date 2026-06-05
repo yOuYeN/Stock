@@ -1,0 +1,64 @@
+
+:root{--ink:#1d1d1f;--muted:#6e6e73;--faint:#86868b;--line:#d2d2d7;--rule:#1d1d1f;--bg:#fff;--accent:#0b5cad;--soft:#f5f5f7;}
+*{box-sizing:border-box;}
+body{margin:0;background:#fbfbfd;color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.85;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:760px;margin:0 auto;padding:34px 26px 110px;background:var(--bg);min-height:100vh;
+box-shadow:0 0 0 1px var(--line);counter-reset:sec;}
+.home{font-size:.85em;color:var(--faint);margin:0 0 26px;letter-spacing:.02em;}
+.home a{color:var(--accent);text-decoration:none;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin:0 0 .5em;font-weight:600;}
+h1{font-size:2.05em;line-height:1.22;font-weight:800;letter-spacing:-.012em;margin:.05em 0 .18em;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.05em;line-height:1.55;}
+hr.rule{border:0;border-top:2.5px solid var(--rule);margin:0 0 2.3em;}
+h2{counter-increment:sec;font-size:1.32em;font-weight:750;letter-spacing:-.005em;margin:2.7em 0 .75em;line-height:1.35;}
+h2::before{content:counter(sec,decimal-leading-zero) "\00a0\00a0\2500\2500\00a0\00a0";
+color:var(--faint);font-weight:600;font-variant-numeric:tabular-nums;}
+h3{font-size:1.08em;font-weight:700;margin:1.7em 0 .45em;color:#1d1d1f;}
+h4{font-size:1em;font-weight:700;margin:1.2em 0 .3em;color:var(--muted);}
+p{margin:.7em 0;}
+strong{font-weight:700;color:#111;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--accent);}
+ul,ol{padding-left:1.4em;margin:.5em 0;}li{margin:.4em 0;}
+ul ul{margin:.3em 0;}
+blockquote{margin:1.1em 0;padding:.7em 1.05em;background:var(--soft);border:1px solid var(--line);
+border-radius:8px;color:#3a3a3c;font-size:.97em;}
+blockquote p{margin:.25em 0;}
+blockquote strong{color:#111;}
+table{border-collapse:collapse;width:100%;margin:1.2em 0;font-size:.95em;}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;
+overflow-wrap:normal;word-break:normal;}
+thead th{border-bottom:2px solid var(--rule);font-weight:700;background:none;}
+td:not(:first-child),th:not(:first-child){text-align:left;}
+tbody tr:hover td{background:#fafafb;}
+code{background:var(--soft);padding:.12em .42em;border-radius:5px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.08em .55em;border-radius:999px;
+margin-right:.35em;vertical-align:.08em;}
+.t-main{background:#e7f3ea;color:#1a7f37;}
+.t-theme{background:#fdf3df;color:#9a6a00;}
+.t-weak{background:#fbe9e9;color:#c0362c;}
+.warn{margin-top:2.6em;padding:.85em 1.05em;background:var(--soft);border:1px solid var(--line);
+border-radius:8px;font-size:.86em;color:#6e6e73;line-height:1.7;}
+.meta-foot{margin-top:1.4em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.14em;color:var(--muted);margin:0 0 2.4em;line-height:1.6;}
+.sec-h{font-size:1.18em;font-weight:750;margin:2.4em 0 .2em;}
+.sec-sub{color:var(--faint);font-size:.92em;margin:.1em 0 1.1em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+@media(max-width:620px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:15px 16px;border:1px solid var(--line);border-radius:11px;
+text-decoration:none;color:var(--ink);background:var(--bg);transition:.15s;}
+.card:hover{border-color:#9a9aa0;transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.05);}
+.card .ct{font-weight:750;font-size:1.04em;}
+.card .cd{color:var(--muted);font-size:.88em;margin-top:.25em;line-height:1.5;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist a{display:flex;gap:14px;align-items:baseline;padding:13px 4px;text-decoration:none;color:var(--ink);}
+.flowlist a:hover{color:var(--accent);}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--faint);font-size:.9em;min-width:96px;font-weight:600;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;}}
