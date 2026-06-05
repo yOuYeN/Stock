@@ -1,0 +1,5 @@
+# 隱私防線：只允許市場分析 html 與站台檔，其餘一律不追蹤
+*
+!*.html
+!README.md
+!.gitignore
