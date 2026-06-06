@@ -1,0 +1,299 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>創意 × Google TPU — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="charge">
+<meta name="x-title" content="創意 × Google TPU">
+<meta name="x-deck" content="創意 2026 年營收一路創高（5 月單月 +132%），追到源頭你會嚇一跳——它喝的是美系雲端巨頭自研晶片的湯，Google 只是其中一口。">
+<meta name="x-date" content="2026-06-07">
+<meta name="x-order" content="21">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">週末快充 · 追源頭看主流</p>
+<h1>創意 × Google TPU</h1>
+<p class="deck">創意 2026 年營收一路創高（5 月單月 +132%），追到源頭你會嚇一跳——它喝的是美系雲端巨頭自研晶片的湯，Google 只是其中一口。</p>
+<hr class="rule">
+<blockquote>
+<p><strong>一句話先講：</strong> 創意（3443）2026 年營收一個月比一個月猛（<strong>5 月單月 46.74 億、年增 132%</strong>，1–5 月累計年增逾 8 成），但要抱得住，你得看懂它在「喝誰的湯」——源頭是<strong>美系雲端巨頭的自研晶片（ASIC）</strong>，其中最具代表性的就是 <strong>Google 的 TPU</strong>。雲端大廠嫌 NVIDIA 的 GPU 太貴，乾脆自己造「AI 運算專車隊」，而把藍圖變成真晶片的關鍵幫手，就是創意。</p>
+<p>⚠️ <strong>先釐清一個常見誤解</strong>：創意不是「純 Google 概念股」。它的 ASIC 量產主力是<strong>多家美系 CSP</strong>（Google Axion CPU 是其中一個公開案子），客戶分散反而是它比世芯（單一大客戶）穩的原因。本篇用 Google TPU 當「看懂源頭」的範例，但別把創意的命運綁死在單一客戶上。</p>
+<p>延伸：族群全貌見〈<a href="ic-asic.html">IC 設計 / ASIC</a>〉總覽；姊妹篇〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉吃的是同一條 Google TPU 的湯。</p>
+</blockquote>
+<h2>先追源頭：Google 的 TPU 到底在紅什麼？</h2>
+<p>台股很多公司說穿了「只是跟著國際大哥喝湯」。要看懂創意，得先看懂大哥 Google。</p>
+<p>打個比方，<strong>TPU 就是 Google 自己造的「私人直達特快車」</strong>：</p>
+<ul>
+<li><strong>專線專用</strong>：這台車只為「AI 運算」這條路設計，把用不到的設備全拆掉，車子更輕、更快、更省電。</li>
+<li><strong>完美契合</strong>：車（TPU）是 Google 自己造的，跟自家月台（軟體架構）零公差完全吻合。</li>
+<li><strong>不用排隊</strong>：別人還在排隊跟 NVIDIA 買票、等發車，Google 早就開著自家專車在軌道上瘋狂載客。</li>
+</ul>
+<p>結果就是：當全世界都在搶 NVIDIA 那張貴森森的車票，Google 用自家車隊把「載客成本」壓到比誰都低——省下的電費以<strong>十億美元</strong>為單位計，直接變成財報上的純利。</p>
+<h2>為什麼是 Google 拔頭籌，連 Apple 都低頭租用？</h2>
+<p>源頭龍頭憑什麼這麼強？四個原因，看懂了你才抱得住：</p>
+<ol>
+<li><strong>戰略遠見</strong>：早在 AI 熱潮前近十年就開始練兵。Google 2013 年驚覺「如果每人每天用 3 分鐘語音搜尋，資料中心就得翻倍」，2015 年就做出第一代 TPU——比 NVIDIA H100 整整早了快十年。</li>
+<li><strong>三位一體</strong>：全球唯一能把「軟體框架＋AI 模型＋自家晶片」綁在一起的玩家。等於同時握有頂級廚師（模型）和為他量身打造的廚房（TPU），效能讓成本直接砍半。</li>
+<li><strong>降維打擊</strong>：別人還在求 NVIDIA 分一點晶片，Google 已經把 TPU 算力「出租」——從一家廣告公司，搖身變成全球 AI 基建的「大房東」。</li>
+<li><strong>省電怪物</strong>：直接導入台積電 5nm、3nm 製程，TPU 不只快、更可怕的是省電，省下的錢全進純利。</li>
+</ol>
+<blockquote>
+<p>所以源頭的訊號很單純——你只要盯一件事：<strong>Alphabet 自研 AI 晶片的戰略變了嗎？大客戶租 TPU 的長約撤了嗎？</strong> 只要沒有，這條從 Google 到創意的湯，就還有得喝。</p>
+</blockquote>
+<h3>訂單能見度：TPU 要做多少顆？</h3>
+<ul>
+<li><strong>TrendForce 最新（2026）</strong>：Google TPU 出貨在所有雲端服務商中<strong>成長率最高，2026 年增逾 40%</strong>，並把 <strong>2026–2028 累計出貨量上修到約 5,000 萬顆</strong>。</li>
+<li><strong>第八代 TPU（v8）採「雙晶片分工」</strong>：訓練與推論徹底分離；其中<strong>推論晶片首度由聯發科主導設計</strong>（I/O Die＋後段整合），創意則續吃 Google Axion CPU 等設計服務訂單。</li>
+</ul>
+<blockquote>
+<p>數字為 TrendForce／法人預估，<strong>非保證、會隨訂單調整</strong>。但量級擺在這——光是要消化「已經確定」的訂單，源頭營收持續創高的機率就很高，台灣供應鏈自然跟著有單接。</p>
+</blockquote>
+<h2>那創意在這條鏈裡做什麼？</h2>
+<p>想像你要蓋一棟超級摩天大樓（一顆 AI 晶片）：</p>
+<ul>
+<li><strong>Google、微軟＝業主</strong>：知道自己想要什麼樣的大樓，但<strong>不會畫詳細施工圖、也不會灌水泥</strong>。</li>
+<li><strong>台積電（TSMC）＝全世界最強的營造廠</strong>：負責把大樓真正蓋出來（製造晶片）。</li>
+<li><strong>創意＝中間最關鍵的「建築師事務所」</strong>：把業主腦中的想法，畫成台積電看得懂的施工圖。台積電的先進製程太複雜，一般公司搞不定——而<strong>創意是台積電的親兒子（持股約 35%）</strong>，最懂老爸的技術。</li>
+</ul>
+<blockquote>
+<p>一句話：<strong>沒有創意幫忙畫圖，很多科技巨頭的 AI 夢就只能停在紙上、蓋不出來。</strong></p>
+</blockquote>
+<h2>創意營收為何能一路創高？三個原因</h2>
+<ol>
+<li><strong>商業模式從「畫圖」變「印鈔」</strong>：過去幫客戶設計晶片只收一次性委託設計費（NRE，像建築師收一筆畫圖費，固定有限）；現在 AI 案子大量量產，創意幫客戶代管整條生產鏈，<strong>營收認列整顆晶片的價值</strong>（Turnkey 量產）。目前 Turnkey 約占 9 成、NRE 約 1 成——這就是月營收能噴出來的主因。</li>
+<li><strong>CSP 自研 ASIC 浪潮</strong>：雲端四巨頭都在拚自己的 AI 晶片，創意作為台積電子公司，是這些巨頭「把想法變現」的關鍵通道。</li>
+<li><strong>先進製程紅利、客單價跳升</strong>：營收主力從過去的 7nm／12nm，全面轉向 5nm 甚至 3nm——<strong>製程越先進、單顆造價越貴</strong>，營收自然墊高。</li>
+</ol>
+<h3>新訂單追蹤（看得見的未來）</h3>
+<ul>
+<li><strong>HBM4 IP</strong>：領先全球完成第四代高頻寬記憶體 IP 在台積電 3nm 投產——這是下一代 AI 晶片的標配入場券。</li>
+<li><strong>CPO（光通訊封裝）</strong>：與 Lightmatter 合作，卡位未來 2–3 年 AI 資料中心的聖杯技術。</li>
+<li><strong>Google Axion CPU</strong>：採用創意的設計服務並進入量產，高單價訂單直接灌進營收。</li>
+</ul>
+<h2>COMPUTEX 2026 動態：從「晶片」走向「系統」</h2>
+<p>2026 年 6 月 COMPUTEX（主題「AI Together」，黃仁勳、蘇姿丰、陳立武三巨頭齊聚台北）上，創意最關鍵的一步是<strong>與緯穎合作 CPO（共同封裝光學）光互連</strong>——在晶片設計階段就把光學 I/O、供電、散熱一起算進去。總經理戴尚義說這是「從晶片設計跨越到系統級」的根本轉變。</p>
+<blockquote>
+<p>白話：創意不再只接「幫你畫一顆晶片」的單，而是切進整套 AI 資料中心的<strong>系統級訂單</strong>，把 CPO 這個未來 2–3 年的聖杯題材卡到位。（同場黃仁勳替邁威爾的矽光子站台，CPO 是這屆最熱的台股題材之一。）</p>
+</blockquote>
+<h2>數字會說話：創意真實財報（不靠目標價）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: right;">數據</th>
+<th style="text-align: left;">看點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026/5 單月營收</td>
+<td style="text-align: right;">46.74 億（<strong>年增 132%</strong>）</td>
+<td style="text-align: left;">月營收一路創高的鐵證（4 月 42.94 億→5 月再墊高）</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 1–5 月累計</td>
+<td style="text-align: right;">年增逾 80%</td>
+<td style="text-align: left;">不是單月曇花一現</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 Q1 EPS</td>
+<td style="text-align: right;">12.28 元</td>
+<td style="text-align: left;">車用 AI NRE 認列、毛利優於預期</td>
+</tr>
+<tr>
+<td style="text-align: left;">FY2025 營收</td>
+<td style="text-align: right;">341 億（年增 36%）</td>
+<td style="text-align: left;">全年基本盤</td>
+</tr>
+<tr>
+<td style="text-align: left;">FY2025 淨利</td>
+<td style="text-align: right;">37.7 億（年增 9%）</td>
+<td style="text-align: left;">獲利同步增</td>
+</tr>
+<tr>
+<td style="text-align: left;">FY2025 毛利率</td>
+<td style="text-align: right;">32% → 25%</td>
+<td style="text-align: left;">⚠️ 量產比重升、毛利被稀釋</td>
+</tr>
+<tr>
+<td style="text-align: left;">本益比</td>
+<td style="text-align: right;">約 156 倍</td>
+<td style="text-align: left;">⚠️ 市場把未來幾年成長先付清，容錯率低</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>數據：月營收為公開資訊觀測站／鉅亨速報（2026/4）；年報為 yfinance FY2025 合併稅後。</p>
+<p><strong>誠實提醒：</strong></p>
+<p>① Turnkey 量產衝營收的代價是毛利率下滑（32%→25%），看創意要同時盯「營收創高」與「毛利有沒有守住」。</p>
+<p>② 本益比已破 150 倍，財報一旦不如預期、或大客戶訂單延遲，殺得最兇的也是這種貴股。</p>
+<p>③ 設計服務本質是「接案＋專案」生意，專案有放量也有空窗。</p>
+</blockquote>
+<h2>同業比一比：台灣三雄 × 國際雙雄</h2>
+<p>看創意不能只看創意。ASIC 設計服務這條鏈，<strong>國際真龍頭是博通與邁威爾，台灣才是三雄</strong>：</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">區域</th>
+<th style="text-align: left;">公司</th>
+<th style="text-align: right;">最新年報營收</th>
+<th style="text-align: right;">營收 YoY</th>
+<th style="text-align: right;">毛利率</th>
+<th style="text-align: right;">市值</th>
+<th style="text-align: left;">定位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🌎 國際</td>
+<td style="text-align: left;">博通 AVGO</td>
+<td style="text-align: right;">$63.9B</td>
+<td style="text-align: right;">+24%</td>
+<td style="text-align: right;">68%</td>
+<td style="text-align: right;">$1.83 兆</td>
+<td style="text-align: left;"><strong>Google TPU 主力設計夥伴、全球真龍頭</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🌎 國際</td>
+<td style="text-align: left;">邁威爾 MRVL</td>
+<td style="text-align: right;">$8.2B</td>
+<td style="text-align: right;">+42%</td>
+<td style="text-align: right;">51%</td>
+<td style="text-align: right;">$2,300 億</td>
+<td style="text-align: left;">CSP 客製矽成長主力、矽光子要角</td>
+</tr>
+<tr>
+<td style="text-align: left;">🇹🇼 台灣</td>
+<td style="text-align: left;">創意 3443</td>
+<td style="text-align: right;">341 億</td>
+<td style="text-align: right;">+36%</td>
+<td style="text-align: right;">25%</td>
+<td style="text-align: right;">約 5,900 億</td>
+<td style="text-align: left;">台積親兒子、最穩</td>
+</tr>
+<tr>
+<td style="text-align: left;">🇹🇼 台灣</td>
+<td style="text-align: left;">世芯-KY 3661</td>
+<td style="text-align: right;">309 億</td>
+<td style="text-align: right;">−40%</td>
+<td style="text-align: right;">26%</td>
+<td style="text-align: right;">約 3,500 億</td>
+<td style="text-align: left;">衝最猛、大客戶集中、波動大</td>
+</tr>
+<tr>
+<td style="text-align: left;">🇹🇼 台灣</td>
+<td style="text-align: left;">智原 3035</td>
+<td style="text-align: right;">180 億</td>
+<td style="text-align: right;">+63%</td>
+<td style="text-align: right;">27%</td>
+<td style="text-align: right;">約 500 億</td>
+<td style="text-align: left;">聯電系、增收不增利</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>數據：國際為 yfinance 最新會計年度（USD）、台廠為 FY2025（億 TWD），不同幣別請看「方向」別硬比絕對值。</p>
+<p><strong>關鍵看懂</strong>：論規模，博通營收約 640 億美元、創意約 11 億美元，<strong>差了快 60 倍</strong>——別把創意當「台版博通」對等看待。台廠的角色是這條全球鏈裡<strong>離台積電最近、執行最快的亞洲據點</strong>，吃的是龍頭吃不完、外溢出來的單，定位是「執行力」不是「規格定義權」。但反過來說，<strong>正因台廠基期小，AI ASIC 大浪一來，營收彈性反而比巨頭更猛</strong>（創意月營收 +156% 就是證據）。</p>
+</blockquote>
+<h2>心法（不是報牌）</h2>
+<ul>
+<li><strong>看懂源頭，就抱得住</strong>：創意的命脈在 Google TPU。只要 Alphabet 自研戰略沒變、大客戶長約沒撤、TPU 出貨量級往上，這條湯就還在。看國際、看源頭，你才不會因股價短線波動就焦慮。</li>
+<li><strong>營收創高 ≠ 無腦抱</strong>：盯月營收還在不在創高、毛利率有沒有崩、訂單有沒有延遲。這三個訊號比股價漲多少重要。</li>
+<li><strong>別用太短線的眼光看大趨勢</strong>：營收持續創高的股價都不是短期表現，源頭沒變就別被洗下車。</li>
+</ul>
+<h2>附錄：看報告、目標價的迷思</h2>
+<p>最近你會看到「里昂喊創意目標價 6,000 元」「某某上修到 X 元」這種新聞。提醒一件事：</p>
+<p>外資的流程是：</p>
+<ul>
+<li><strong>①</strong> 先用金融術語講「為什麼這產業／公司營收會創高」。</li>
+<li><strong>②</strong> 預估接下來營收、獲利的成長率。</li>
+<li><strong>③</strong> 最後給一個「有吸引力的目標價」。</li>
+</ul>
+<p>但<strong>成長率是估的</strong>（公司老闆自己都說不準兩年後賺多少）、<strong>本益比幾倍也是分析師自己愛給多少給多少</strong>。</p>
+<p>所以重點順序永遠是：</p>
+<ul>
+<li><strong>①</strong> 公司為什麼營收創高了？</li>
+<li><strong>②</strong> 憑什麼接下來還能繼續成長？</li>
+</ul>
+<p>目標價只是行銷話術，只有散戶以為那是寫來「真的會到」的。與其追亂掰的目標價，不如記住一句：<strong>營收能一直創高，股價就能一直創高，這樣想容易多了。</strong></p>
+<div class="warn">警語：本文內容僅為市場金流、產業趨勢及公開資訊之整理與觀察分享，不構成任何證券、期貨或其他金融商品之投資建議、買賣邀約、推薦或勸誘。文中所提個股、產業或市場走勢均不保證未來表現，亦不代表任何投資成果之承諾。投資具風險，請於投資前自行審慎評估，並依自身財務狀況與風險承受度，獨立做出投資決策，相關投資盈虧應由投資人自行負責。</div>
+</div></body></html>
