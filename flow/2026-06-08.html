@@ -1,0 +1,401 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 半導體鏈放量降溫、外資提款權值股 — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="flow">
+<meta name="x-title" content="AI 半導體鏈放量降溫、外資提款權值股">
+<meta name="x-deck" content="6/8（一）收盤｜成交值集中在台積電、聯發科、鴻海與 PCB/記憶體，但多數是放量下跌；今天不是輪動，是熱門 AI 硬體鏈同步降溫。">
+<meta name="x-date" content="2026-06-08">
+<meta name="x-order" content="50">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">看懂金流 · 國際到台股</p>
+<h1>AI 半導體鏈放量降溫、外資提款權值股</h1>
+<p class="deck">6/8（一）收盤｜成交值集中在台積電、聯發科、鴻海與 PCB/記憶體，但多數是放量下跌；今天不是輪動，是熱門 AI 硬體鏈同步降溫。</p>
+<hr class="rule">
+<blockquote>
+<p><strong>今日 Top Call：</strong> 今天不是「錢換到別的 AI 支線」，而是 AI 半導體鏈被整排提款。成交值愈大的地方，反而愈像主力先下車的車廂：台積電、聯發科、鴻海、欣興、華通、緯創都進 TOP20，但全部收黑。</p>
+</blockquote>
+<h2>台股成交值 TOP20（6/8）</h2>
+<div class="cols">
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">股票</th>
+<th style="text-align: center;">收盤</th>
+<th style="text-align: center;">漲跌</th>
+<th style="text-align: center;">成交值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">台積電 2330</td>
+<td style="text-align: center;">2,295</td>
+<td style="text-align: center;">-3.0%</td>
+<td style="text-align: center;">1,196 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">聯發科 2454</td>
+<td style="text-align: center;">4,070</td>
+<td style="text-align: center;"><strong>-5.3%</strong></td>
+<td style="text-align: center;">652 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">元大台灣 50（ETF）</td>
+<td style="text-align: center;">100.95</td>
+<td style="text-align: center;">-3.1%</td>
+<td style="text-align: center;">522 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">聯電 2303</td>
+<td style="text-align: center;">121</td>
+<td style="text-align: center;"><strong>-8.0%</strong></td>
+<td style="text-align: center;">387 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">南亞科 2408</td>
+<td style="text-align: center;">339.5</td>
+<td style="text-align: center;"><strong>-5.7%</strong></td>
+<td style="text-align: center;">351 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">台達電 2308</td>
+<td style="text-align: center;">2,255</td>
+<td style="text-align: center;">-2.0%</td>
+<td style="text-align: center;">335 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">鴻海 2317</td>
+<td style="text-align: center;">269.5</td>
+<td style="text-align: center;"><strong>-5.3%</strong></td>
+<td style="text-align: center;">313 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">華邦電 2344</td>
+<td style="text-align: center;">154</td>
+<td style="text-align: center;">-4.9%</td>
+<td style="text-align: center;">271 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">元大台灣 50 正 2（ETF）</td>
+<td style="text-align: center;">33.8</td>
+<td style="text-align: center;"><strong>-7.8%</strong></td>
+<td style="text-align: center;">247 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">廣達 2382</td>
+<td style="text-align: center;">376.5</td>
+<td style="text-align: center;">-3.6%</td>
+<td style="text-align: center;">234 億</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">股票</th>
+<th style="text-align: center;">收盤</th>
+<th style="text-align: center;">漲跌</th>
+<th style="text-align: center;">成交值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">欣興 3037</td>
+<td style="text-align: center;">911</td>
+<td style="text-align: center;">-2.4%</td>
+<td style="text-align: center;">224 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">群聯 8299</td>
+<td style="text-align: center;">2,250</td>
+<td style="text-align: center;"><strong>-8.2%</strong></td>
+<td style="text-align: center;">190 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">國巨* 2327</td>
+<td style="text-align: center;">751</td>
+<td style="text-align: center;">-2.3%</td>
+<td style="text-align: center;">189 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">日月光投控 3711</td>
+<td style="text-align: center;">540</td>
+<td style="text-align: center;"><strong>-6.4%</strong></td>
+<td style="text-align: center;">140 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">台光電 2383</td>
+<td style="text-align: center;">4,770</td>
+<td style="text-align: center;">-2.4%</td>
+<td style="text-align: center;">125 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">南電 8046</td>
+<td style="text-align: center;">831</td>
+<td style="text-align: center;">-1.7%</td>
+<td style="text-align: center;">123 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">富邦金 2881</td>
+<td style="text-align: center;">116</td>
+<td style="text-align: center;">-1.7%</td>
+<td style="text-align: center;">121 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">主動統一台股增長 00981A</td>
+<td style="text-align: center;">29.89</td>
+<td style="text-align: center;">-3.0%</td>
+<td style="text-align: center;">119 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">華通 2313</td>
+<td style="text-align: center;">252</td>
+<td style="text-align: center;">-2.7%</td>
+<td style="text-align: center;">119 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">緯創 3231</td>
+<td style="text-align: center;">163.5</td>
+<td style="text-align: center;">-4.4%</td>
+<td style="text-align: center;">114 億</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<blockquote>
+<p>TOP20 只有少數跌幅小一點，沒有真正強勢紅盤。這種盤不是「熱錢找到新出口」，比較像前幾週最擁擠的 AI 硬體部位開始降槓桿。</p>
+</blockquote>
+<h2>族群金流地圖</h2>
+<p>標籤：<span class="tag t-main">主流</span> 基本面仍在、等止穩｜<span class="tag t-theme">題材</span> 有故事但波動大｜<span class="tag t-weak">轉弱</span> 放量提款。（法人買賣超單位＝張）</p>
+<h3>相對抗跌（今天還有買盤守）</h3>
+<ul>
+<li><strong>記憶體模組小支線</strong> <span class="tag t-theme">題材</span>：宜鼎 5289 <strong>+3.1%</strong>、九豪 6127 +0.8%。大盤很弱時還能紅，代表不是每個記憶體標的都被砍，但南亞科、華邦電、群聯仍在 TOP20 放量重跌，族群整體還不能說轉強。</li>
+<li><strong>測試/探針卡</strong> <span class="tag t-main">主流</span>：尖點 8021 +0.4%、創意 3443 持平、穎崴 6515 小跌 -0.5%。這些是今天少數沒有被大盤拖垮的高價股，但位置仍高，重點是能不能連續抗跌。</li>
+<li><strong>機構件</strong> <span class="tag t-theme">題材</span>：新日興 3376 僅 -0.2%，且外資 +1,562、投信 +750。資金還願意守題材，但這不是大盤主線，只能算避風小角落。</li>
+</ul>
+<h3>被提款（今天錢從這撤）</h3>
+<ul>
+<li><strong>伺服器/ODM</strong> <span class="tag t-weak">外資大賣</span>：鴻海 -5.3%、緯創 -4.4%、緯穎 -6.8%、仁寶 -6.8%。族群外資合計 <strong>-34,828</strong>，投信 +1,133，白話就是外資倒貨、內資接，方向還沒穩。</li>
+<li><strong>晶圓代工</strong> <span class="tag t-weak">權值壓盤</span>：台積電 -3.0%、力積電 -9.5%。外資合計 <strong>-21,768</strong>，投信 +761。台積電成交值 1,196 億但收黑，是今天大盤壓力的核心。</li>
+<li><strong>IC 設計</strong> <span class="tag t-weak">高檔降溫</span>：聯發科 -5.3%、創意持平。族群外資 -2,515、投信 +576。聯發科放量跌進成交值第 2，代表不是小型題材退潮，而是權值 AI 鏈也被提款。</li>
+<li><strong>IC 通路</strong> <span class="tag t-weak">同步轉弱</span>：至上 8112 -8.5%，外資 -6,142、投信 -673。這是今天比較乾淨的雙賣訊號。</li>
+</ul>
+<h2>外資 vs 投信：今天不是同一條心</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">族群</th>
+<th style="text-align: right;">外資</th>
+<th style="text-align: right;">投信</th>
+<th style="text-align: left;">解讀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">伺服器/ODM</td>
+<td style="text-align: right;"><strong>-34,828</strong></td>
+<td style="text-align: right;">+1,133</td>
+<td style="text-align: left;">外資砍鴻海、緯創、仁寶，投信小接；方向未明</td>
+</tr>
+<tr>
+<td style="text-align: left;">晶圓代工</td>
+<td style="text-align: right;"><strong>-21,768</strong></td>
+<td style="text-align: right;">+761</td>
+<td style="text-align: left;">台積電權值壓盤，內資只是在接，不是主動攻</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC 設計</td>
+<td style="text-align: right;">-2,515</td>
+<td style="text-align: right;">+576</td>
+<td style="text-align: left;">聯發科被賣，創意撐住；高檔分歧</td>
+</tr>
+<tr>
+<td style="text-align: left;">載板/PCB</td>
+<td style="text-align: right;">+352</td>
+<td style="text-align: right;">-198</td>
+<td style="text-align: left;">數字看似不差，但欣興、華通都在 TOP20 收黑</td>
+</tr>
+<tr>
+<td style="text-align: left;">記憶體</td>
+<td style="text-align: right;">+5,293</td>
+<td style="text-align: right;"><strong>-4,313</strong></td>
+<td style="text-align: left;">外資投信反向，族群內強弱差很大</td>
+</tr>
+<tr>
+<td style="text-align: left;">重電/廠務</td>
+<td style="text-align: right;">+431</td>
+<td style="text-align: right;">-964</td>
+<td style="text-align: left;">漢唐跌重，投信賣壓明顯</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>白話</strong>：外資今天主要賣「大船」：伺服器、晶圓代工、IC 設計。投信有接一點，但接得不夠兇，所以盤面看起來像有人扶、但扶不住。</p>
+<h2>美股（6/5 收盤·台股 6/8 隔夜場）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">指數/個股</th>
+<th style="text-align: right;">6/5</th>
+<th style="text-align: left;">重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">S&amp;P 500</td>
+<td style="text-align: right;"><strong>-2.6%</strong></td>
+<td style="text-align: left;">科技股賣壓拖累大盤，結束近期連勝節奏</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nasdaq</td>
+<td style="text-align: right;"><strong>-4.2%</strong></td>
+<td style="text-align: left;">AI/半導體殺最重</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nvidia</td>
+<td style="text-align: right;"><strong>跌逾 6%</strong></td>
+<td style="text-align: left;">AI 龍頭也被提款</td>
+</tr>
+<tr>
+<td style="text-align: left;">Broadcom</td>
+<td style="text-align: right;">-7.9%</td>
+<td style="text-align: left;">財測未達市場高標，半導體情緒轉冷</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>看法</strong>：這次不是台股自己弱，是美股 AI 交易先踩煞車。當 Nvidia、Broadcom 都被賣，台股的台積電、聯發科、伺服器組裝、載板自然一起被壓。</p>
+<h2>日股（6/8 同日）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">標的</th>
+<th style="text-align: right;">6/8</th>
+<th style="text-align: left;">重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">日經 225</td>
+<td style="text-align: right;"><strong>-3.85%</strong></td>
+<td style="text-align: left;">AI 與半導體承壓</td>
+</tr>
+<tr>
+<td style="text-align: left;">TOPIX</td>
+<td style="text-align: right;"><strong>-2.45%</strong></td>
+<td style="text-align: left;">大盤同步走弱</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>白話</strong>：日本今天也不是小跌，是半導體設備、高價科技股同步被賣。美國、日本、台灣三邊對上同一件事：AI 硬體鏈高檔獲利了結。</p>
+<h2>結論 / 我的看法</h2>
+<ol>
+<li><strong>今天是「AI 半導體鏈放量降溫」</strong>，不是健康輪動。成交值越大的核心股，多數越弱。</li>
+<li><strong>外資提款權值股，投信接但接不住</strong>。這種盤不能急著把單日下跌解讀成低接機會。</li>
+<li><strong>記憶體分歧很大</strong>：南亞科、華邦電、群聯重跌，但宜鼎、九豪抗跌；先看明天是否縮量止穩。</li>
+<li><strong>明天關鍵看三件事</strong>：台積電能不能縮量、聯發科能不能止跌、伺服器/ODM 是否續被外資賣。</li>
+</ol>
+<div class="warn">警語：本報告為公開資訊整理與觀察分享，不構成任何證券、期貨或金融商品之投資建議、買賣邀約或勸誘。所提個股、產業或走勢均不保證未來表現。投資具風險，請依自身財務狀況與風險承受度，獨立做出投資決策，盈虧自負。資料：台股成交值/法人＝TWSE MI_INDEX＋T86／TPEx（6/8）；美股＝AP/Kiplinger（6/5）；日股＝MoneyDJ/Yahoo 股市（6/8）。</div>
+</div></body></html>
