@@ -1,0 +1,405 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>指數沒掉、錢在換桌：載板與 IC 設計接棒，外資仍倒大型權值 — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="flow">
+<meta name="x-title" content="指數沒掉、錢在換桌：載板與 IC 設計接棒，外資仍倒大型權值">
+<meta name="x-deck" content="6/9（二）收盤｜台積電爆量卻不漲、外資狂賣靠投信硬扛；資金從伺服器/ODM、晶圓代工換到載板/PCB 與 IC 設計。今天是輪動＋反彈，不是全面追價。">
+<meta name="x-date" content="2026-06-09">
+<meta name="x-order" content="50">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">看懂金流 · 國際到台股</p>
+<h1>指數沒掉、錢在換桌：載板與 IC 設計接棒，外資仍倒大型權值</h1>
+<p class="deck">6/9（二）收盤｜台積電爆量卻不漲、外資狂賣靠投信硬扛；資金從伺服器/ODM、晶圓代工換到載板/PCB 與 IC 設計。今天是輪動＋反彈，不是全面追價。</p>
+<hr class="rule">
+<blockquote>
+<p><strong>今日 Top Call：</strong> 跟昨天的「整排 AI 硬體鏈一起降溫」不同，今天是錢在桌與桌之間換位子。台積電成交 896 億是全場最大、卻只收 +0.4%，外資狂倒 1.5 萬張、靠投信接 2,660 張硬撐——這是高檔換手；同時載板/PCB 與 IC 設計整排攻漲停，指數靠它們撐住。</p>
+</blockquote>
+<h2>台股成交值 TOP20（6/9）</h2>
+<div class="cols">
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">股票</th>
+<th style="text-align: center;">收盤</th>
+<th style="text-align: center;">漲跌</th>
+<th style="text-align: center;">成交值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">台積電 2330</td>
+<td style="text-align: center;">2,305</td>
+<td style="text-align: center;">+0.4%</td>
+<td style="text-align: center;">896 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">聯發科 2454</td>
+<td style="text-align: center;">4,475</td>
+<td style="text-align: center;"><strong>+10.0%</strong></td>
+<td style="text-align: center;">719 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">聯電 2303</td>
+<td style="text-align: center;">127.5</td>
+<td style="text-align: center;">+5.4%</td>
+<td style="text-align: center;">472 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">國巨* 2327</td>
+<td style="text-align: center;">826</td>
+<td style="text-align: center;"><strong>+10.0%</strong></td>
+<td style="text-align: center;">421 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">台達電 2308</td>
+<td style="text-align: center;">2,415</td>
+<td style="text-align: center;">+7.1%</td>
+<td style="text-align: center;">368 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">南亞科 2408</td>
+<td style="text-align: center;">363</td>
+<td style="text-align: center;">+6.9%</td>
+<td style="text-align: center;">351 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">華邦電 2344</td>
+<td style="text-align: center;">156.5</td>
+<td style="text-align: center;">+1.6%</td>
+<td style="text-align: center;">319 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">元大台灣 50 0050</td>
+<td style="text-align: center;">103.5</td>
+<td style="text-align: center;">+2.5%</td>
+<td style="text-align: center;">251 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">欣興 3037</td>
+<td style="text-align: center;">969</td>
+<td style="text-align: center;">+6.4%</td>
+<td style="text-align: center;">221 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">鴻海 2317</td>
+<td style="text-align: center;">277.5</td>
+<td style="text-align: center;">+3.0%</td>
+<td style="text-align: center;">204 億</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">股票</th>
+<th style="text-align: center;">收盤</th>
+<th style="text-align: center;">漲跌</th>
+<th style="text-align: center;">成交值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">華通 2313</td>
+<td style="text-align: center;">276</td>
+<td style="text-align: center;"><strong>+9.5%</strong></td>
+<td style="text-align: center;">197 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">廣達 2382</td>
+<td style="text-align: center;">375</td>
+<td style="text-align: center;">-0.4%</td>
+<td style="text-align: center;">192 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">金像電 2368</td>
+<td style="text-align: center;">1,495</td>
+<td style="text-align: center;"><strong>+9.9%</strong></td>
+<td style="text-align: center;">176 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">南電 8046</td>
+<td style="text-align: center;">914</td>
+<td style="text-align: center;"><strong>+10.0%</strong></td>
+<td style="text-align: center;">167 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">奇鋐 3017</td>
+<td style="text-align: center;">2,545</td>
+<td style="text-align: center;">-1.0%</td>
+<td style="text-align: center;">160 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">頎邦 6147</td>
+<td style="text-align: center;">251</td>
+<td style="text-align: center;">+3.3%</td>
+<td style="text-align: center;">145 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">晶技 3042</td>
+<td style="text-align: center;">228.5</td>
+<td style="text-align: center;">+8.6%</td>
+<td style="text-align: center;">143 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">川湖 2059</td>
+<td style="text-align: center;">6,795</td>
+<td style="text-align: center;"><strong>+10.0%</strong></td>
+<td style="text-align: center;">141 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">台燿 6274</td>
+<td style="text-align: center;">1,615</td>
+<td style="text-align: center;">+5.2%</td>
+<td style="text-align: center;">140 億</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">友達 2409</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">-1.6%</td>
+<td style="text-align: center;">125 億</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<blockquote>
+<p>TOP20 裡有一整排漲停（聯發科、國巨*、南電、金像電、川湖），也有爆量卻不漲的台積電。這種「指數收紅、權值龍頭原地踏步、漲停集中在載板與 IC 設計」的盤，是典型的資金輪動，不是全面追價。</p>
+</blockquote>
+<h2>先判斷大盤：這是輪動＋高檔換手，不是全面追價</h2>
+<p>今天台股的特徵有三個：第一，成交值最大的台積電只收 +0.4%、外資賣超 1.5 萬張，靠投信 2,660 張硬撐——權值龍頭爆量不漲，是高檔換手的標準訊號；第二，漲停與大漲集中在載板/PCB（華通、南電、金像電、南亞科、欣興）與 IC 設計（聯發科），代表錢不是離場，而是從一條鏈換到另一條鏈；第三，外資雖然狂賣伺服器/ODM 與晶圓代工，但投信在 IC 設計與晶圓代工反向認養，內外資對 AI 鏈短線方向沒共識。</p>
+<p>所以我的判斷是：<strong>今天比較像資金輪動＋權值高檔換手，市場風險偏好回升（ETF 也回補），但外資對大型 AI 權值仍未回頭。</strong>這不是昨天那種「整排降槓桿」的修正，而是熱錢在 AI 鏈內部重新分配；要留意的是漲停那批是否有外資實買支撐，還是只是題材與投信認養的單日激情。</p>
+<p>國際上，美股晶片股在上週五重挫後隔夜（6/8）反彈、日股同日大漲超過 2%，給台股的科技股一個喘息的隔夜環境。但要記得：這波反彈是「跌深反彈＋估值修復」，不是新利多，所以盤面才會出現「指數回神、但外資仍在倒大型權值」的分裂感。</p>
+<h2>族群金流地圖</h2>
+<p>標籤：<span class="tag t-main">主流</span> 基本面＋金流雙到｜<span class="tag t-theme">題材</span> 有故事但波動大｜<span class="tag t-weak">轉弱</span> 放量提款。（法人買賣超單位＝張）</p>
+<h3>今天領漲、資金流入</h3>
+<ul>
+<li><strong>載板/PCB／高階基板</strong> <span class="tag t-main">今日主流</span>：華通 2313 +9.5%、南電 8046 漲停、金像電 2368 +9.9%、欣興 3037 +6.4%、台燿 6274 +5.2%，外資族群合計買超約 <strong>+19,821</strong>。這是今天唯一「成交值大、漲幅強、外資真金買進」三者兼具的族群，最像本日真主流。</li>
+<li><strong>IC 設計/ASIC</strong> <span class="tag t-theme">投信認養</span>：聯發科 2454 攻漲停、成交 719 億排第 2，但外資其實賣超約 1,210 張，是<strong>投信認養（+826）把它扛上漲停</strong>。屬於投信作帳型題材，要看明天外資回不回頭。</li>
+<li><strong>被動元件</strong> <span class="tag t-main">相對強</span>：國巨* 2327 漲停、成交值第 4；台達電 2308 +7.1%。在權值龍頭不動時，部分高階零組件接棒撐盤。</li>
+</ul>
+<h3>相對指標：風險偏好回升</h3>
+<ul>
+<li><strong>ETF/指數型</strong> <span class="tag t-main">回補</span>：元大台灣 50（0050）+2.5%、成交值第 8。指數型 ETF 翻紅回補，是整體台股風險部位重新加碼的訊號，不是個股題材能解釋的，和昨天 ETF 放量殺盤剛好相反。</li>
+</ul>
+<h3>被提款：今天錢從這撤</h3>
+<ul>
+<li><strong>伺服器/ODM</strong> <span class="tag t-weak">外資最大提款</span>：廣達 2382 收 -0.4%、奇鋐 3017 -1.0%，族群外資合計賣超約 <strong>-65,833</strong>（仁寶、緯創是主要賣壓來源），是全場最大失血的桌。外資對 AI 組裝這條線仍在大規模調節。</li>
+<li><strong>晶圓代工</strong> <span class="tag t-weak">權值換手</span>：台積電爆量不漲、外資賣超約 1.5 萬張，族群外資合計約 <strong>-18,228</strong>，全靠投信 +2,660 接。指數靠它穩住，但不是主動攻。</li>
+<li><strong>探針卡/封測/被動陶瓷</strong> <span class="tag t-theme">題材熱錢</span>：晶技 3042 +8.6%、部分探針卡攻漲停，但外資其實在賣（晶技外資賣超約 5,400 張）。這種「外資邊賣、散戶與投信邊推漲停」的，火快也熄得快，波動最大。</li>
+</ul>
+<h2>外資 vs 投信：今天不是同一條心</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">族群</th>
+<th style="text-align: right;">外資</th>
+<th style="text-align: right;">投信</th>
+<th style="text-align: left;">解讀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">載板/PCB</td>
+<td style="text-align: right;"><strong>+19,821</strong></td>
+<td style="text-align: right;">+311</td>
+<td style="text-align: left;">外資真金買進，今日主流</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC 通路</td>
+<td style="text-align: right;">+6,979</td>
+<td style="text-align: right;">-237</td>
+<td style="text-align: left;">外資買、投信小賣</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC 設計</td>
+<td style="text-align: right;">-1,646</td>
+<td style="text-align: right;"><strong>+886</strong></td>
+<td style="text-align: left;">外資賣聯發科、投信認養扛漲停；高檔分歧</td>
+</tr>
+<tr>
+<td style="text-align: left;">晶圓代工</td>
+<td style="text-align: right;"><strong>-18,228</strong></td>
+<td style="text-align: right;">+2,660</td>
+<td style="text-align: left;">外資倒台積電、投信硬接</td>
+</tr>
+<tr>
+<td style="text-align: left;">伺服器/ODM</td>
+<td style="text-align: right;"><strong>-65,833</strong></td>
+<td style="text-align: right;">+676</td>
+<td style="text-align: left;">外資全場最大提款、投信小接</td>
+</tr>
+<tr>
+<td style="text-align: left;">記憶體</td>
+<td style="text-align: right;">+24</td>
+<td style="text-align: right;"><strong>-2,390</strong></td>
+<td style="text-align: left;">外資投信反向，方向未明</td>
+</tr>
+<tr>
+<td style="text-align: left;">被動/陶瓷</td>
+<td style="text-align: right;">-6,908</td>
+<td style="text-align: right;">+181</td>
+<td style="text-align: left;">外資調節、投信小接</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>白話</strong>：外資今天主要賣「大船」——伺服器、晶圓代工、記憶體；買的是「新上車的小船」載板/PCB 與 IC 通路。投信則反向認養台積電與聯發科。同一條 AI 鏈，外資投信對作的族群多達七八個，代表法人對短線方向沒共識，這種日子別追漲停。</p>
+<h2>美股（6/8 收盤·台股 6/9 隔夜場）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">指數</th>
+<th style="text-align: right;">6/8</th>
+<th style="text-align: left;">重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">S&amp;P 500</td>
+<td style="text-align: right;"><strong>+0.30%</strong>（7,405.73）</td>
+<td style="text-align: left;">晶片股從上週五重挫反彈，帶動大盤回神</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nasdaq</td>
+<td style="text-align: right;"><strong>+0.86%</strong>（25,929.66）</td>
+<td style="text-align: left;">AI/半導體領漲，科技股止跌</td>
+</tr>
+<tr>
+<td style="text-align: left;">道瓊</td>
+<td style="text-align: right;">-0.16%（50,786.01）</td>
+<td style="text-align: left;">權值小跌、輪動明顯</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>看法</strong>：這是「跌深反彈＋估值修復」，不是新的多頭催化。上週五（6/4）那斯達克才創 2025 年 4 月以來最大單日跌幅，週一只是把賣過頭的晶片股撿回來一些。對台股的含意是：隔夜環境轉好、給科技股喘息，但別把單日反彈當成 AI 修正結束。</p>
+<h2>日股（6/9 同日）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">標的</th>
+<th style="text-align: right;">6/9</th>
+<th style="text-align: left;">重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">日經 225</td>
+<td style="text-align: right;"><strong>+2.17%</strong>（65,416.63）</td>
+<td style="text-align: left;">跟著晶片股回神大漲</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>白話</strong>：日本同日大漲超過 2%，半導體與高價科技股同步回神，和台股今天的反彈節奏一致。美、日、台三邊一起反彈，說明這波是全球 AI/半導體部位的短線回補，而不是台股自己的單邊行情。</p>
+<h2>結論 / 我的看法</h2>
+<ol>
+<li><strong>今天是輪動＋反彈日</strong>，不是全面追價。錢從伺服器/ODM、晶圓代工，換到載板/PCB 與 IC 設計。</li>
+<li><strong>權值高檔換手</strong>：台積電爆量不漲、外資狂賣靠投信硬扛，指數其實是靠載板、被動與聯發科漲停撐起來的。</li>
+<li><strong>真主流＝載板/PCB</strong>（外資實買＋題材雙到）；<strong>題材熱錢＝漲停的探針卡/被動陶瓷</strong>（外資邊賣邊漲），波動最大、別追高。</li>
+<li><strong>整體看權值與 ETF</strong>：0050 回補翻紅、指數收紅，風險偏好回升；但外資對大型 AI 權值（台積電、伺服器/ODM）仍未回頭，這個分裂訊號比個股紅黑重要。</li>
+<li><strong>明天關鍵看三件事</strong>：台積電能不能帶量上攻、聯發科漲停能不能延續（外資回不回頭）、伺服器/ODM 外資是否止賣。</li>
+</ol>
+<div class="warn">警語：本報告為公開資訊整理與觀察分享，不構成任何證券、期貨或金融商品之投資建議、買賣邀約或勸誘。所提個股、產業或走勢均不保證未來表現。投資具風險，請依自身財務狀況與風險承受度，獨立做出投資決策，盈虧自負。資料：台股成交值/法人＝TWSE MI_INDEX＋T86／TPEx（6/9）；美股＝TheStreet/CNBC（6/8）；日股＝Yahoo!ファイナンス（6/9）。</div>
+</div></body></html>
