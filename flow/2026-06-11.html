@@ -1,0 +1,499 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>被動元件接棒，台積電除息填息 24 秒，大盤承壓收跌 — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="flow">
+<meta name="x-title" content="被動元件接棒，台積電除息填息 24 秒，大盤承壓收跌">
+<meta name="x-deck" content="6/11 看懂金流">
+<meta name="x-date" content="2026-06-11">
+<meta name="x-order" content="50">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">看懂金流 · 國際到台股</p>
+<h1>被動元件接棒，台積電除息填息 24 秒，大盤承壓收跌</h1>
+<p class="deck">6/11 看懂金流</p>
+<hr class="rule">
+<h2>01 ── 一句定調</h2>
+<p>美國 CPI 通膨 4.2%（三年新高）加上伊朗地緣升溫，台股跟著美股隔夜暴跌開低、全天下行，加權指數收 <strong>42,658 點（-567，-1.31%）</strong>；但台積電除息 24 秒填息、國巨爆出 998 億天量，說明市場並非全面出逃，而是<strong>資金從高 PE 伺服器 ODM 轉往被動元件 AI 補漲題材</strong>。</p>
+<hr />
+<h2>02 ── 成交值 TOP 20（6/11 官方）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">排名</th>
+<th style="text-align: center;">代號</th>
+<th style="text-align: left;">名稱</th>
+<th style="text-align: right;">收盤</th>
+<th style="text-align: right;">漲跌 %</th>
+<th style="text-align: right;">成交值</th>
+<th style="text-align: left;">觀察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">2330</td>
+<td style="text-align: left;">台積電</td>
+<td style="text-align: right;">2,250</td>
+<td style="text-align: right;">+0.0%</td>
+<td style="text-align: right;">1,041 億</td>
+<td style="text-align: left;">除息日填息，高量換手</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">2327</td>
+<td style="text-align: left;">國巨*</td>
+<td style="text-align: right;">842</td>
+<td style="text-align: right;">+2.8%</td>
+<td style="text-align: right;"><strong>998 億</strong></td>
+<td style="text-align: left;">AI 接單出貨比衝 1.3，週量爆發</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">2454</td>
+<td style="text-align: left;">聯發科</td>
+<td style="text-align: right;">4,085</td>
+<td style="text-align: right;">-1.7%</td>
+<td style="text-align: right;">708 億</td>
+<td style="text-align: left;">外資小賣，CPI 壓制高 PE</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">2303</td>
+<td style="text-align: left;">聯電</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;"><strong>+5.5%</strong></td>
+<td style="text-align: right;">442 億</td>
+<td style="text-align: left;">成熟製程逆勢強漲</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">2344</td>
+<td style="text-align: left;">華邦電</td>
+<td style="text-align: right;">156.5</td>
+<td style="text-align: right;"><strong>+5.0%</strong></td>
+<td style="text-align: right;">370 億</td>
+<td style="text-align: left;">DRAM 回暖外資買超</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">2408</td>
+<td style="text-align: left;">南亞科</td>
+<td style="text-align: right;">340</td>
+<td style="text-align: right;">+2.1%</td>
+<td style="text-align: right;">345 億</td>
+<td style="text-align: left;">記憶體延續強勢</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: center;">2308</td>
+<td style="text-align: left;">台達電</td>
+<td style="text-align: right;">2,160</td>
+<td style="text-align: right;">-1.8%</td>
+<td style="text-align: right;">329 億</td>
+<td style="text-align: left;">電源大廠補跌</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: center;">0050</td>
+<td style="text-align: left;">元大台灣 50</td>
+<td style="text-align: right;">99.85</td>
+<td style="text-align: right;">-0.4%</td>
+<td style="text-align: right;">296 億</td>
+<td style="text-align: left;">ETF 小幅失守 100 元</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: center;">2317</td>
+<td style="text-align: left;">鴻海</td>
+<td style="text-align: right;">258.5</td>
+<td style="text-align: right;">-1.7%</td>
+<td style="text-align: right;">251 億</td>
+<td style="text-align: left;">伺服器鏈同步承壓</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">2313</td>
+<td style="text-align: left;">華通</td>
+<td style="text-align: right;">275</td>
+<td style="text-align: right;"><strong>+6.2%</strong></td>
+<td style="text-align: right;">249 億</td>
+<td style="text-align: left;">外資爆買 +10,646 張</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: center;">4958</td>
+<td style="text-align: left;">臻鼎-KY</td>
+<td style="text-align: right;">529</td>
+<td style="text-align: right;">+5.4%</td>
+<td style="text-align: right;">238 億</td>
+<td style="text-align: left;">載板 PCB 外資認養</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">3037</td>
+<td style="text-align: left;">欣興</td>
+<td style="text-align: right;">854</td>
+<td style="text-align: right;">-3.4%</td>
+<td style="text-align: right;">232 億</td>
+<td style="text-align: left;">高 PE 載板遭棄</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td style="text-align: center;">3189</td>
+<td style="text-align: left;">景碩</td>
+<td style="text-align: right;">619</td>
+<td style="text-align: right;"><strong>-6.2%</strong></td>
+<td style="text-align: right;">192 億</td>
+<td style="text-align: left;">載板族群大分化</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td style="text-align: center;">2382</td>
+<td style="text-align: left;">廣達</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: right;">-2.8%</td>
+<td style="text-align: right;">179 億</td>
+<td style="text-align: left;">ODM 補跌</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;">3008</td>
+<td style="text-align: left;">大立光</td>
+<td style="text-align: right;">4,165</td>
+<td style="text-align: right;">+0.8%</td>
+<td style="text-align: right;">178 億</td>
+<td style="text-align: left;">光學小漲，相對抗跌</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td style="text-align: center;">8046</td>
+<td style="text-align: left;">南電</td>
+<td style="text-align: right;">807</td>
+<td style="text-align: right;">-4.7%</td>
+<td style="text-align: right;">158 億</td>
+<td style="text-align: left;">載板高 PE 分化賣壓重</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td style="text-align: center;">8021</td>
+<td style="text-align: left;">尖點</td>
+<td style="text-align: right;">570</td>
+<td style="text-align: right;">+2.5%</td>
+<td style="text-align: right;">154 億</td>
+<td style="text-align: left;">被動元件族群沾光</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td style="text-align: center;">8299</td>
+<td style="text-align: left;">群聯</td>
+<td style="text-align: right;">2,200</td>
+<td style="text-align: right;">+2.1%</td>
+<td style="text-align: right;">146 億</td>
+<td style="text-align: left;">記憶體控制器補漲</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td style="text-align: center;">6669</td>
+<td style="text-align: left;">緯穎</td>
+<td style="text-align: right;">4,900</td>
+<td style="text-align: right;">-3.3%</td>
+<td style="text-align: right;">143 億</td>
+<td style="text-align: left;">伺服器 ODM 跌幅收窄</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td style="text-align: center;">2383</td>
+<td style="text-align: left;">台光電</td>
+<td style="text-align: right;">5,095</td>
+<td style="text-align: right;">+3.1%</td>
+<td style="text-align: right;">140 億</td>
+<td style="text-align: left;">CCL 高頻材料外資接</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>03 ── 金流流入 vs 流出族群</h2>
+<p><strong>流入（外資 + 投信淨買超）</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">族群</th>
+<th style="text-align: right;">外資 (張)</th>
+<th style="text-align: right;">投信 (張)</th>
+<th style="text-align: left;">解讀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">載板/PCB</td>
+<td style="text-align: right;">+12,950</td>
+<td style="text-align: right;">-773</td>
+<td style="text-align: left;">外資獨挑華通、臻鼎；投信反手賣 ⚠️ 分歧</td>
+</tr>
+<tr>
+<td style="text-align: left;">被動元件/陶瓷</td>
+<td style="text-align: right;">+599</td>
+<td style="text-align: right;">+391</td>
+<td style="text-align: left;">外資投信同向買，AI 補漲確認</td>
+</tr>
+<tr>
+<td style="text-align: left;">記憶體</td>
+<td style="text-align: right;">+1,038</td>
+<td style="text-align: right;">-3,166</td>
+<td style="text-align: left;">外資買 DRAM，投信出記憶體 ⚠️ 分歧</td>
+</tr>
+<tr>
+<td style="text-align: left;">玻纖布/CCL</td>
+<td style="text-align: right;">+1,548</td>
+<td style="text-align: right;">-27</td>
+<td style="text-align: left;">外資接高頻材料</td>
+</tr>
+<tr>
+<td style="text-align: left;">3D 玻璃</td>
+<td style="text-align: right;">+1,173</td>
+<td style="text-align: right;">+0</td>
+<td style="text-align: left;">外資小補</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>流出（賣超明顯）</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">族群</th>
+<th style="text-align: right;">外資 (張)</th>
+<th style="text-align: right;">投信 (張)</th>
+<th style="text-align: left;">解讀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">伺服器/ODM</td>
+<td style="text-align: right;">-16,888</td>
+<td style="text-align: right;">-11,756</td>
+<td style="text-align: left;">外資投信雙殺，緯創重挫 -3.5%、廣達 -2.8%</td>
+</tr>
+<tr>
+<td style="text-align: left;">晶圓代工</td>
+<td style="text-align: right;">-5,934</td>
+<td style="text-align: right;">+622</td>
+<td style="text-align: left;">外資賣，台積電除息日籌碼整理</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC 通路</td>
+<td style="text-align: right;">-3,809</td>
+<td style="text-align: right;">-220</td>
+<td style="text-align: left;">至上小漲但外資出</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC 設計</td>
+<td style="text-align: right;">-1,573</td>
+<td style="text-align: right;">+396</td>
+<td style="text-align: left;">聯發科 CPI 壓制；投信護盤創意</td>
+</tr>
+<tr>
+<td style="text-align: left;">封測/測試</td>
+<td style="text-align: right;">-1,011</td>
+<td style="text-align: right;">+403</td>
+<td style="text-align: left;">外資投信反向 ⚠️ 分歧</td>
+</tr>
+<tr>
+<td style="text-align: left;">網通</td>
+<td style="text-align: right;">-1,491</td>
+<td style="text-align: right;">+517</td>
+<td style="text-align: left;">啟碁外資賣、投信買 ⚠️ 分歧</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>04 ── 外資 vs 投信分歧解讀</h2>
+<p>今日外資 vs 投信分歧在<strong>六個族群</strong>（比昨日更多），且方向多為「外資賣、投信買」：</p>
+<ul>
+<li><strong>伺服器 ODM 外資投信齊賣</strong>是最強烈訊號：-17k/-12k，連投信都不護盤，廣達緯創緯穎三線齊跌——說明短線估值壓力（PE 40–60）在 CPI 升溫後確實難以支撐。</li>
+<li><strong>載板 PCB 外資大買但投信賣</strong>：外資選擇性買 AI 需求確定的 ABF 載板（華通、臻鼎），但投信在週線高點獲利了結，方向分歧要繼續觀察後續外資是否持續。</li>
+</ul>
+<hr />
+<h2>05 ── 國際局勢（美股 6/10 盤後 / 日股 6/11 盤中）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">市場</th>
+<th style="text-align: left;">指數</th>
+<th style="text-align: right;">收盤/盤中</th>
+<th style="text-align: right;">漲跌</th>
+<th style="text-align: left;">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">S&amp;P 500</td>
+<td style="text-align: left;">6/10 收盤</td>
+<td style="text-align: right;">7,267</td>
+<td style="text-align: right;"><strong>-1.62%</strong></td>
+<td style="text-align: left;">CPI 4.2% 重創科技</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nasdaq</td>
+<td style="text-align: left;">6/10 收盤</td>
+<td style="text-align: right;">25,170</td>
+<td style="text-align: right;"><strong>-1.98%</strong></td>
+<td style="text-align: left;">費半領跌，AI 估值再受壓</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dow Jones</td>
+<td style="text-align: left;">6/10 收盤</td>
+<td style="text-align: right;">49,919</td>
+<td style="text-align: right;">-1.87%</td>
+<td style="text-align: left;">跌破 5 萬整數關卡</td>
+</tr>
+<tr>
+<td style="text-align: left;">日經平均</td>
+<td style="text-align: left;">6/11 盤中</td>
+<td style="text-align: right;">63,578</td>
+<td style="text-align: right;"><strong>-0.94%</strong></td>
+<td style="text-align: left;">跟跌美股，AI 概念同步降溫</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>兩大利空同時到來</strong>：
+1. 美國 5 月 CPI 年增 4.2%（三年新高）→ Fed 降息希望再度推遲 → 高 PE 科技股重新被質疑
+2. 美軍阿帕契直升機遭伊朗擊落，川普宣布再對伊朗發動攻擊 → 地緣風險推升油價，拖累全球風險資產</p>
+<hr />
+<h2>06 ── 今日關鍵事件：台積電除息 vs 國巨天量</h2>
+<p><strong>台積電除息（2025 Q4 現金股利）</strong>
+- 今日除息影響加權指數約 -47.84 點，是大盤「被動下拉」的一部分，並非真正賣壓
+- 填息速度：<strong>開盤後 24 秒完成</strong>，說明法人機構對台積電長線信心極強，後續追蹤是否維持填息</p>
+<p><strong>國巨（2327）998 億天量</strong>
+- 成交值幾乎追平台積電，史上罕見
+- 背景：5 月股東會董事長陳泰銘釋訊——AI 被動元件需求超預期、<strong>接單出貨比 1.3</strong>（即接單遠多於能出貨）→ 供不應求格局
+- 上漲 +2.8%，晶技（石英晶體）同族群也拉出 +9.8%，被動元件族群補漲行情正式燃起</p>
+<hr />
+<h2>07 ── 下跌原因判斷：修正還是泡沫？</h2>
+<p>今日下跌 <strong>-1.31%</strong> 歸因：</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">因素</th>
+<th style="text-align: left;">影響</th>
+<th style="text-align: left;">類型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">美國 CPI 4.2%，Fed 降息延後</td>
+<td style="text-align: left;">高 PE 科技股估值壓縮</td>
+<td style="text-align: left;"><strong>財測/估值修正</strong>（非泡沫）</td>
+</tr>
+<tr>
+<td style="text-align: left;">台積電除息拖累大盤</td>
+<td style="text-align: left;">被動 -47pt</td>
+<td style="text-align: left;">技術性調整（不代表賣壓）</td>
+</tr>
+<tr>
+<td style="text-align: left;">伊朗地緣升溫</td>
+<td style="text-align: left;">風險情緒降溫、外資觀望</td>
+<td style="text-align: left;">短期避險</td>
+</tr>
+<tr>
+<td style="text-align: left;">伺服器 ODM 高 PE 估值壓力</td>
+<td style="text-align: left;">廣達/緯穎/緯創補跌</td>
+<td style="text-align: left;">正常輪動獲利了結</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>結論：修正，非泡沫退潮。</strong> 核心 AI 需求沒有動搖（台積電填息確認、被動元件接單持續），只是通膨數字讓市場對資金成本重新定價。被動元件逆勢爆量，顯示場內資金仍在做「換倉輪動」，非恐慌出逃。</p>
+<hr />
+<h2>08 ── 明日觀察訊號</h2>
+<p><strong>偏多訊號（需三個同向才算真反彈）</strong>
+- [ ] 費半（SOX）夜盤由跌轉平或翻紅
+- [ ] 台積電後市維持在除息價之上（不回補除息缺口）
+- [ ] 外資對台股整體由賣超轉買超（或大幅縮賣）</p>
+<p><strong>偏空訊號（需持續觀察）</strong>
+- 伊朗事件若持續升溫（美軍後續行動、油價走高）→ 全球避險情緒難散
+- CPI 若後續數據繼續超預期 → Fed 轉鷹警示升溫，科技高 PE 難逃
+- 台股成交值若縮至 3,000 億以下 → 人氣退場，注意短線量能</p>
+<hr />
+<p>⚠️ 本報告內容來自公開市場資料整理，<strong>非投資建議</strong>，盈虧自負。</p>
+</div></body></html>
