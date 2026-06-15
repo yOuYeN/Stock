@@ -1,0 +1,286 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>被動元件 / MLCC — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="charge">
+<meta name="x-title" content="被動元件 / MLCC">
+<meta name="x-deck" content="一個 AI 機櫃要塞 45 萬顆、是一支手機的 300 倍——為何沉默十年的「電路螺絲釘」突然變成下一個缺貨明星？">
+<meta name="x-date" content="2026-06-15">
+<meta name="x-order" content="30">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">週末快充 · 白話文看懂產業</p>
+<h1>被動元件 / MLCC</h1>
+<p class="deck">一個 AI 機櫃要塞 45 萬顆、是一支手機的 300 倍——為何沉默十年的「電路螺絲釘」突然變成下一個缺貨明星？</p>
+<hr class="rule">
+<blockquote>
+<p><strong>一句話先講：</strong> 被動元件（以 MLCC 為主）是每塊電路板上「沉默的小螺絲」，便宜、不起眼、過去十年慘到打價格戰。但 AI 伺服器一台機櫃要用掉的 MLCC，是傳統伺服器的 3～5 倍、單價還貴 30～50%，加上日本龍頭產能滿載開不出來，於是缺貨漲價循環重新點火。看懂「<strong>用量爆增 × 報價調漲 × 龍頭滿載</strong>」這三件事，就看懂為什麼 2026 年這族群多檔輪流漲停。</p>
+</blockquote>
+<h2>先搞懂主角：被動元件到底是什麼？</h2>
+<p>電路板上的零件分兩種個性：</p>
+<ul>
+<li><strong>主動元件＝會「思考」的大腦</strong>：像 CPU、GPU、記憶體，需要通電才能運算、放大、處理訊號，是台上的主角。</li>
+<li><strong>被動元件＝默默「顧場」的工班</strong>：不運算，只負責「穩住電流」——該存電的存電、該擋雜訊的擋雜訊、該濾掉突波的濾突波。沒有它們，再強的晶片也會因為電壓不穩而當機燒毀。</li>
+</ul>
+<p>三大基本款，用生活比喻記就好：</p>
+<ul>
+<li><strong>電容（MLCC）＝小水庫</strong>：把電先存起來，大腦突然需要大電流時瞬間放出，穩住供電。AI 晶片功耗暴衝，最需要的就是這種「反應超快的小水庫」。</li>
+<li><strong>電阻＝水龍頭</strong>：控制電流大小，不要一次衝太猛。</li>
+<li><strong>電感＝慣性飛輪／穩流器</strong>：讓電流變化得平順，常用在電源轉換。</li>
+</ul>
+<blockquote>
+<p><strong>MLCC（多層陶瓷電容）就是被動元件之王</strong>——一塊指甲蓋大的小東西，裡面用陶瓷與金屬「千層派」般疊上百層。它是全電子業用量最大的零件，也是這波 AI 行情的主角。</p>
+</blockquote>
+<h2>追源頭：為什麼 AI 伺服器讓「小螺絲」變成印鈔機？</h2>
+<p>被動元件自己不會創高，<strong>真正的源頭是輝達（NVIDIA）的 AI 機櫃</strong>。看懂源頭，你才抱得住這條供應鏈：</p>
+<ul>
+<li><strong>用量倍數跳升</strong>：AI 伺服器的 MLCC 用量是傳統伺服器的 <strong>3～5 倍</strong>。一台輝達 GB200 機櫃，光 MLCC 就要用掉 <strong>約 45 萬顆</strong>——是一支智慧型手機用量的 <strong>300 倍</strong>。整櫃系統需要超過 3 萬顆 MLCC，而過去一般伺服器只要約 2,200 顆。</li>
+<li><strong>單價同步翻倍</strong>：AI 要的是「高容量、耐高壓、耐高溫」的高階 MLCC，不是手機那種便宜貨。高階品單價比一般品貴 <strong>30～50%</strong>，國巨的高階 MLCC 與 TLVR 電感單價更直接大增三到五成。</li>
+<li><strong>下一棒更猛</strong>：輝達 Vera Rubin 平台進入量產，單機架用量與單價再往上跳，市場預估 AI 相關被動元件的缺貨會一路延續到 <strong>2027 年</strong>。</li>
+</ul>
+<blockquote>
+<p>一句話：AI 機櫃越蓋越多、每櫃用得越來越兇、還指定要貴的——這就是被動元件「量價齊揚」的底層引擎。</p>
+</blockquote>
+<h2>你以為龍頭是國巨？全球第一其實是日本村田</h2>
+<p>講被動元件不能只看台股。真正主導高階市場、決定報價的，是兩家日韓巨頭：</p>
+<ul>
+<li><strong>村田製作所（Murata, 6981.T）＝全球 MLCC 之王</strong>：市值高達 <strong>18.31 兆日圓</strong>（約台積電等級的巨無霸），高階 MLCC 市占全球第一，蘋果、輝達的關鍵供應商。它的產線稼動率已逼近 <strong>90～95% 滿載</strong>。</li>
+<li><strong>三星電機（Samsung Electro-Mechanics）＝韓系猛將</strong>：與村田並列高階雙雄，同樣產能吃緊。</li>
+</ul>
+<p>關鍵在於：<strong>這兩家指標大廠的新產能，最快要 2026 下半年才開得出來。</strong> 當需求暴增、龍頭卻擴產不及，市場就出現明顯供給缺口——MLCC 交期已拉長到 <strong>22～24 週</strong>，原廠陸續調漲 <strong>15～20%</strong> 報價，還在醞釀對高階品的新一輪漲價。<strong>龍頭吃不下的訂單與漲價紅利，才會外溢到台廠。</strong> 這就是為什麼看台廠要先看村田臉色。</p>
+<h2>國巨的逆襲：從台灣代工小廠，到買下美國 KEMET</h2>
+<p>台灣被動元件的代表，是 <strong>國巨（Yageo, 2327）</strong>，董事長陳泰銘一手把它從「殺價競爭的代工廠」變成「靠併購買出來的國際集團」：</p>
+<ul>
+<li><strong>全球晶片電阻第一、MLCC 前三</strong>：國巨本來以低階、標準型產品為主，毛利薄、景氣一壞就崩。陳泰銘的解方是<strong>用併購買下高階技術與客戶</strong>——2018 年併美國 Pulse Electronics、2020 年砸約 18 億美元鯨吞美國老牌大廠 <strong>KEMET</strong>（鉭質電容、高階 MLCC）、2022 年再收購瑞士 Schaffner（EMC 濾波）。</li>
+<li><strong>買出護城河</strong>：透過這串併購，國巨一舉跨進車用、工控、國防、醫療等「高規格、高毛利、難打進去」的市場，從「便宜陶瓷電容」升級成「能供應高壓高溫高可靠度元件」的國際集團，正式擠進全球前三大 MLCC 廠。</li>
+<li><strong>躋身兆元俱樂部</strong>：2026 年靠 AI 伺服器高階 MLCC 需求，國巨市值一度突破 <strong>新台幣 1 兆元</strong>。</li>
+</ul>
+<blockquote>
+<p>國巨的故事重點不是「便宜變貴」，而是<strong>它早就用十年併購把自己墊高到能吃下 AI 高階單的位置</strong>——當村田滿載、漲價外溢時，有能力接的台廠才賺得到。</p>
+</blockquote>
+<h2>數字會說話：最新月營收創高，但別忽略「年報還在谷底」</h2>
+<p>PressPlay 看產業有個鐵則：<strong>先看最新月營收，再對照年報，別只挑好聽的講。</strong> 國巨的數字剛好是兩種訊號並存：</p>
+<ul>
+<li><strong>月營收創高（最強證據）</strong>：2026 年 5 月合併營收 <strong>136.3 億元、年增 +22.78%</strong>，4 月 <strong>130.3 億元、年增 +27.13%</strong>，雙雙改寫歷史新高。這代表 AI 拉貨是「正在發生」的真實營收，不是想像。</li>
+<li><strong>但 2025 年報還在復甦初期</strong>：國巨 2025 全年營收 1,329 億（年增約 +9%）、稅後淨利 236 億、EPS 11.48 元（年增約 +22%）——獲利確實回升，但這是從 2023～2024 的低谷往上爬。</li>
+<li><strong>同業甚至「增收不增利」</strong>：華新科 2025 營收小增、淨利卻年減約 <strong>23%</strong>（EPS 6.08→4.73）；連石英龍頭晶技 2025 淨利也年減約 <strong>16%</strong>（EPS 6.39→5.23）。</li>
+</ul>
+<blockquote>
+<p><strong>白話結論：2025 是被動元件「剛走出谷底」的一年，真正的爆發力反映在 2026 的月營收與報價上。</strong> 看這族群，月營收年增率與報價調漲，比落後的年報更貼近現在。</p>
+</blockquote>
+<h2>另一條線：石英元件與台灣龍頭晶技</h2>
+<p>除了 MLCC，被動元件還有一條「石英／頻率元件」支線——負責給晶片<strong>精準的時間節拍</strong>（時脈），AI 伺服器、車用、低軌衛星越多，越需要高頻穩定的石英元件：</p>
+<ul>
+<li><strong>晶技（TXC, 3042）＝台灣石英龍頭</strong>：2025 營收 133 億、EPS 5.23 元（同樣是淨利年減的一年），本益比約 47 倍、殖利率約 2.1%，估值比 MLCC 三雄收斂，是相對「實在」的一檔。</li>
+<li><strong>國際對手＝日本電波（NDK, 6779.T）</strong>：日系石英老廠，規模與晶技相近（注意幣別不同，看方向別硬比）。</li>
+</ul>
+<h2>同業比一比（真實財報，台廠億 TWD／國際原幣）</h2>
+<blockquote>
+<p>幣別不同（台廠新台幣、日廠日圓），<strong>只看規模量級與方向，別硬換算對比</strong>。數據為 stock_data.py 抓的最新年報。</p>
+</blockquote>
+<p><strong>台廠（2025 年報，新台幣）</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: center;">代號</th>
+<th style="text-align: right;">2025 營收</th>
+<th style="text-align: right;">2025 EPS</th>
+<th style="text-align: right;">本益比</th>
+<th style="text-align: left;">觀察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">國巨</td>
+<td style="text-align: center;">2327</td>
+<td style="text-align: right;">1,329 億</td>
+<td style="text-align: right;">11.48</td>
+<td style="text-align: right;">~74</td>
+<td style="text-align: left;">晶片電阻全球第一、MLCC 前三，市值破兆</td>
+</tr>
+<tr>
+<td style="text-align: left;">華新科</td>
+<td style="text-align: center;">2492</td>
+<td style="text-align: right;">365 億</td>
+<td style="text-align: right;">4.73</td>
+<td style="text-align: right;">~95</td>
+<td style="text-align: left;">切入 AI 高壓 MLCC，但 2025 淨利年減約 23%</td>
+</tr>
+<tr>
+<td style="text-align: left;">禾伸堂</td>
+<td style="text-align: center;">3026</td>
+<td style="text-align: right;">134 億</td>
+<td style="text-align: right;">~5.8*</td>
+<td style="text-align: right;">~129</td>
+<td style="text-align: left;">利基型 MLCC，估值偏高</td>
+</tr>
+<tr>
+<td style="text-align: left;">晶技</td>
+<td style="text-align: center;">3042</td>
+<td style="text-align: right;">133 億</td>
+<td style="text-align: right;">5.23</td>
+<td style="text-align: right;">~47</td>
+<td style="text-align: left;">石英龍頭，估值相對收斂、有殖利率</td>
+</tr>
+</tbody>
+</table></div>
+<p>*禾伸堂 2025 EPS 資料源缺漏，暫引 2024 年值參考。</p>
+<p><strong>國際大廠（最新年報，原幣）</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: center;">代號</th>
+<th style="text-align: right;">市值</th>
+<th style="text-align: right;">年營收</th>
+<th style="text-align: right;">本益比</th>
+<th style="text-align: left;">地位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">村田</td>
+<td style="text-align: center;">6981.T</td>
+<td style="text-align: right;">18.31 兆 JPY</td>
+<td style="text-align: right;">~1.74 兆 JPY</td>
+<td style="text-align: right;">~79</td>
+<td style="text-align: left;">全球 MLCC 龍頭、產能滿載</td>
+</tr>
+<tr>
+<td style="text-align: left;">TDK</td>
+<td style="text-align: center;">6762.T</td>
+<td style="text-align: right;">7.41 兆 JPY</td>
+<td style="text-align: right;">~2.20 兆 JPY</td>
+<td style="text-align: right;">~38</td>
+<td style="text-align: left;">綜合被動元件＋電池大廠</td>
+</tr>
+<tr>
+<td style="text-align: left;">太陽誘電</td>
+<td style="text-align: center;">6976.T</td>
+<td style="text-align: right;">2.41 兆 JPY</td>
+<td style="text-align: right;">~0.34 兆 JPY</td>
+<td style="text-align: right;">~180</td>
+<td style="text-align: left;">高階 MLCC 三雄之一</td>
+</tr>
+<tr>
+<td style="text-align: left;">日本電波</td>
+<td style="text-align: center;">6779.T</td>
+<td style="text-align: right;">876 億 JPY</td>
+<td style="text-align: right;">~530 億 JPY</td>
+<td style="text-align: right;">~43</td>
+<td style="text-align: left;">石英元件，晶技對手</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>規模上，村田年營收約是國巨的 <strong>近 3 倍</strong>、市值約 <strong>2 倍</strong>——國巨已是全球前段班，但離日系龍頭仍有距離。<strong>台廠的角色，是在村田／三星電機滿載、漲價外溢時，承接溢出的高階訂單與報價紅利。</strong></p>
+</blockquote>
+<h2>COMPUTEX 2026 與近期動態（主動追的時事）</h2>
+<ul>
+<li><strong>缺貨循環確立</strong>：AI 算力飆升疊加輝達 Vera Rubin 量產，加上銀、銅原物料成本推升，原廠交期拉長、報價連番調漲，市場普遍認為這波缺貨會延續到 2027。</li>
+<li><strong>族群輪流漲停</strong>：2026 上半年被動元件族群「愈關愈大尾」，國巨來到分割後新高價，信昌電、佳邦、蜜望實、鈺邦、金山電、千如等中小型股接力亮燈漲停。</li>
+<li><strong>國巨法說會（2026/04/30）</strong>：管理層釋出 AI 伺服器高階 MLCC 接單暢旺、產品組合往高毛利移動的訊號——這也是後續股價評價上修的根據。</li>
+<li><strong>延伸閱讀</strong>：同樣是「AI 把產能吃光 → 缺貨漲價」的劇本，記憶體那條更猛，可對照 <a href="memory.html">記憶體</a> 這篇。</li>
+</ul>
+<h2>風險平衡：三件別只聽多頭的事</h2>
+<p>寫產業不能只報喜。被動元件這波，至少有三個要盯緊的風險：</p>
+<ul>
+<li><strong>估值已經很貴</strong>：國巨本益比約 74 倍、華新科約 95 倍、禾伸堂約 129 倍、太陽誘電甚至約 180 倍——遠高於這族群歷史常態（過去多在 15～25 倍）。<strong>股價已經把很多好消息先反映了</strong>，一旦 AI 拉貨不如預期，高本益比的回檔也最兇。</li>
+<li><strong>本質是循環產業</strong>：被動元件向來「景氣好就擴產、擴完就跌價」，2025 的「增收不增利」就是上一輪殺價的尾巴。這波是 AI 高階品撐起的結構性需求，但低階標準品仍受循環影響。</li>
+<li><strong>新產能 2026 下半年開出</strong>：缺貨漲價的最大變數，就是村田、三星電機的新產能。一旦大廠產能陸續到位，現在的「交期 22～24 週、報價連漲」可能緩解，漲價題材會降溫。</li>
+</ul>
+<h2>附錄：別再被「目標價」綁架</h2>
+<p>每次族群大漲，券商目標價就一路上修——但目標價更多是「行銷」，不是承諾。與其問「會漲到幾元」，不如盯三個會真正驅動營收的問題：</p>
+<ol>
+<li><strong>月營收年增率還在加速嗎？</strong>（國巨連續創高、年增 20%+ 是好訊號）</li>
+<li><strong>報價還在調漲、交期還在拉長嗎？</strong>（缺貨退燒，題材就退燒）</li>
+<li><strong>高階／AI 產品占比有沒有持續往上？</strong>（決定毛利能不能撐住高估值）</li>
+</ol>
+<h2>結尾心法</h2>
+<p>被動元件這波的源頭很單純：<strong>AI 機櫃用量爆增 × 高階報價調漲 × 日系龍頭滿載</strong>。只要這三件事沒變調——AI 伺服器持續放量、缺貨還在、龍頭新產能還沒淹滿市場——龍頭與高階受惠股的故事就還在。</p>
+<p>但別忘了它「估值已貴、本質循環」的另一面：<strong>上車主流龍頭、看的是基本面與供需，不是追每一根漲停板。</strong> 看懂源頭，你才知道什麼時候該抱、什麼時候該警覺。</p>
+<hr />
+<p>⚠️ 本文為公開資訊整理與產業科普，<strong>非投資建議</strong>，盈虧自負。</p>
+</div></body></html>
