@@ -1,0 +1,491 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>連三紅但動能收斂，權值熄火、資金擴散落後股，FOMC 前觀望加權僅小漲 68 點 — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="flow">
+<meta name="x-title" content="連三紅但動能收斂，權值熄火、資金擴散落後股，FOMC 前觀望加權僅小漲 68 點">
+<meta name="x-deck" content="6/17 看懂金流">
+<meta name="x-date" content="2026-06-17">
+<meta name="x-order" content="50">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">看懂金流 · 國際到台股</p>
+<h1>連三紅但動能收斂，權值熄火、資金擴散落後股，FOMC 前觀望加權僅小漲 68 點</h1>
+<p class="deck">6/17 看懂金流</p>
+<hr class="rule">
+<h2>01 ── 一句定調</h2>
+<p>延續美伊終戰的 relief rally，台股加權收 <strong>45,877.39 點（+68.20，+0.15%）</strong>，連三紅，但漲幅從 6/15 的 +2.78% 大幅收斂——<strong>這是一根「權值休息、資金擴散」的紅 K</strong>。權值雙雄熄火（台積電 -0.6%、聯發科 -2.2%）拖住指數，但資金沒走、改往中小型與落後族群補漲：<strong>景碩漲停（+10.0%）、禾伸堂 +9.9%、友達 +9.8%、合晶 +6.5%、大立光 +5.9%、環球晶 +5.3%</strong> 多檔噴出。市場在美國 <strong>FOMC 利率決議（台灣 6/18 清晨揭曉）前刻意收手觀望</strong>，成交約 1.10 兆、量能與前日持平。</p>
+<hr />
+<h2>02 ── 成交值 TOP 20（6/17 官方）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">排名</th>
+<th style="text-align: center;">代號</th>
+<th style="text-align: left;">名稱</th>
+<th style="text-align: right;">收盤</th>
+<th style="text-align: right;">漲跌 %</th>
+<th style="text-align: right;">成交值</th>
+<th style="text-align: left;">觀察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">2330</td>
+<td style="text-align: left;">台積電</td>
+<td style="text-align: right;">2,385</td>
+<td style="text-align: right;"><strong>-0.6%</strong></td>
+<td style="text-align: right;">712 億</td>
+<td style="text-align: left;">權值地基休息，小幅回檔</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">2327</td>
+<td style="text-align: left;">國巨*</td>
+<td style="text-align: right;">984</td>
+<td style="text-align: right;">+3.6%</td>
+<td style="text-align: right;">543 億</td>
+<td style="text-align: left;">被動元件續強，量能居次</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">2344</td>
+<td style="text-align: left;">華邦電</td>
+<td style="text-align: right;">199</td>
+<td style="text-align: right;">+1.0%</td>
+<td style="text-align: right;">439 億</td>
+<td style="text-align: left;">記憶體高檔換手</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">2408</td>
+<td style="text-align: left;">南亞科</td>
+<td style="text-align: right;">437</td>
+<td style="text-align: right;">+2.8%</td>
+<td style="text-align: right;">432 億</td>
+<td style="text-align: left;">DRAM 報價題材續攻</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">2454</td>
+<td style="text-align: left;">聯發科</td>
+<td style="text-align: right;">4,460</td>
+<td style="text-align: right;"><strong>-2.2%</strong></td>
+<td style="text-align: right;">410 億</td>
+<td style="text-align: left;">IC 設計龍頭獲利了結，拖累指數</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">3008</td>
+<td style="text-align: left;">大立光</td>
+<td style="text-align: right;">5,145</td>
+<td style="text-align: right;"><strong>+5.9%</strong></td>
+<td style="text-align: right;">290 億</td>
+<td style="text-align: left;">光學強漲，續攻</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: center;">2308</td>
+<td style="text-align: left;">台達電</td>
+<td style="text-align: right;">2,155</td>
+<td style="text-align: right;">+0.0%</td>
+<td style="text-align: right;">252 億</td>
+<td style="text-align: left;">電源權值平盤整理</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: center;">2303</td>
+<td style="text-align: left;">聯電</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">-0.7%</td>
+<td style="text-align: right;">238 億</td>
+<td style="text-align: left;">成熟製程小幅回檔</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: center;">4958</td>
+<td style="text-align: left;">臻鼎-KY</td>
+<td style="text-align: right;">639</td>
+<td style="text-align: right;">+2.4%</td>
+<td style="text-align: right;">228 億</td>
+<td style="text-align: left;">載板 PCB 續強</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">3189</td>
+<td style="text-align: left;">景碩</td>
+<td style="text-align: right;">706</td>
+<td style="text-align: right;"><strong>+10.0%</strong></td>
+<td style="text-align: right;">207 億</td>
+<td style="text-align: left;">載板漲停，今日最強</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: center;">6182</td>
+<td style="text-align: left;">合晶</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">+6.5%</td>
+<td style="text-align: right;">195 億</td>
+<td style="text-align: left;">矽晶圓題材點火</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">2337</td>
+<td style="text-align: left;">旺宏</td>
+<td style="text-align: right;">161.5</td>
+<td style="text-align: right;"><strong>-3.0%</strong></td>
+<td style="text-align: right;">186 億</td>
+<td style="text-align: left;">記憶體獨弱，逆勢翻黑</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td style="text-align: center;">6488</td>
+<td style="text-align: left;">環球晶</td>
+<td style="text-align: right;">1,100</td>
+<td style="text-align: right;">+5.3%</td>
+<td style="text-align: right;">181 億</td>
+<td style="text-align: left;">矽晶圓龍頭走強</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td style="text-align: center;">3037</td>
+<td style="text-align: left;">欣興</td>
+<td style="text-align: right;">988</td>
+<td style="text-align: right;">+0.7%</td>
+<td style="text-align: right;">179 億</td>
+<td style="text-align: left;">IC 載板小漲</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;">2313</td>
+<td style="text-align: left;">華通</td>
+<td style="text-align: right;">264</td>
+<td style="text-align: right;">+6.0%</td>
+<td style="text-align: right;">175 億</td>
+<td style="text-align: left;">PCB（HDI）／低軌衛星，外資反手大買</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td style="text-align: center;">3443</td>
+<td style="text-align: left;">創意</td>
+<td style="text-align: right;">5,075</td>
+<td style="text-align: right;">+3.2%</td>
+<td style="text-align: right;">164 億</td>
+<td style="text-align: left;">ASIC 設計續強</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td style="text-align: center;">8046</td>
+<td style="text-align: left;">南電</td>
+<td style="text-align: right;">885</td>
+<td style="text-align: right;"><strong>-1.9%</strong></td>
+<td style="text-align: right;">154 億</td>
+<td style="text-align: left;">載板逆勢翻黑</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td style="text-align: center;">6239</td>
+<td style="text-align: left;">力成</td>
+<td style="text-align: right;">345</td>
+<td style="text-align: right;">-0.4%</td>
+<td style="text-align: right;">149 億</td>
+<td style="text-align: left;">封測小幅整理</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td style="text-align: center;">2409</td>
+<td style="text-align: left;">友達</td>
+<td style="text-align: right;">26.25</td>
+<td style="text-align: right;"><strong>+9.8%</strong></td>
+<td style="text-align: right;">143 億</td>
+<td style="text-align: left;">面板落後補漲噴出</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td style="text-align: center;">3026</td>
+<td style="text-align: left;">禾伸堂</td>
+<td style="text-align: right;">896</td>
+<td style="text-align: right;"><strong>+9.9%</strong></td>
+<td style="text-align: right;">138 億</td>
+<td style="text-align: left;">被動元件強漲</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>03 ── 族群輪動（全市場 TOP20 視角）</h2>
+<p>今日是「<strong>權值休息、資金往落後與中小型擴散</strong>」的格局。以成交值 TOP20 的漲跌結構來看：</p>
+<p><strong>領漲</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">族群</th>
+<th style="text-align: left;">代表（TOP20）</th>
+<th style="text-align: left;">表現</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">載板/PCB</td>
+<td style="text-align: left;">景碩 +10.0%（漲停）、臻鼎 +2.4%、華通 +6.0%</td>
+<td style="text-align: left;">景碩領軍、華通外資認養，唯南電翻黑</td>
+</tr>
+<tr>
+<td style="text-align: left;">被動元件</td>
+<td style="text-align: left;">國巨 +3.6%、禾伸堂 +9.9%</td>
+<td style="text-align: left;">量能居次，題材延燒</td>
+</tr>
+<tr>
+<td style="text-align: left;">光學</td>
+<td style="text-align: left;">大立光 +5.9%</td>
+<td style="text-align: left;">連兩日強攻</td>
+</tr>
+<tr>
+<td style="text-align: left;">矽晶圓</td>
+<td style="text-align: left;">環球晶 +5.3%、合晶 +6.5%</td>
+<td style="text-align: left;">落後族群點火補漲</td>
+</tr>
+<tr>
+<td style="text-align: left;">面板</td>
+<td style="text-align: left;">友達 +9.8%</td>
+<td style="text-align: left;">低基期落後補漲</td>
+</tr>
+<tr>
+<td style="text-align: left;">DRAM</td>
+<td style="text-align: left;">南亞科 +2.8%、華邦電 +1.0%</td>
+<td style="text-align: left;">報價題材續撐，但旺宏背道翻黑</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>逆勢偏弱</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">族群</th>
+<th style="text-align: left;">代表（TOP20）</th>
+<th style="text-align: left;">表現</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">權值/IC 設計</td>
+<td style="text-align: left;">台積電 -0.6%、聯發科 -2.2%</td>
+<td style="text-align: left;">雙雄獲利了結，是今日指數最大拖累</td>
+</tr>
+<tr>
+<td style="text-align: left;">記憶體（NOR/NAND）</td>
+<td style="text-align: left;">旺宏 -3.0%</td>
+<td style="text-align: left;">與南亞科/華邦背離、獨自走弱</td>
+</tr>
+<tr>
+<td style="text-align: left;">個別載板</td>
+<td style="text-align: left;">南電 -1.9%</td>
+<td style="text-align: left;">與景碩/欣興背道、族群內部換手</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ <strong>盤面從 6/15 的「全面普漲」轉成「強弱分明的擴散行情」</strong>：權值雙雄休息，但資金沒撤出市場，而是輪進景碩、友達、矽晶圓、被動等落後或中小型族群——多檔漲停。這通常是<strong>反彈中繼、資金換手</strong>的訊號，而非追價失控；但權值（台積電、聯發科）能否止穩回神，才是指數能否續攻的關鍵。</p>
+<hr />
+<h2>04 ── 市場結構觀察</h2>
+<ul>
+<li><strong>指數小漲靠中小型撐、權值在拖</strong>：台積電（-0.6%）、聯發科（-2.2%）兩大權值同時回檔，指數還能收紅 +0.15%，全靠景碩、友達、大立光、矽晶圓等中小型與落後族群多檔噴出——市場廣度（上漲家數）優於指數表面漲幅。</li>
+<li><strong>成交約 1.10 兆、量能持平</strong>：連三紅後量能沒有放大也沒急縮，顯示是「換手」而非全面追價，也非退潮，符合重大事件（FOMC）前的觀望盤。</li>
+<li><strong>FOMC 前刻意收手</strong>：美國聯準會利率決議將於台灣 6/18 清晨揭曉，全球資金在結果出爐前傾向降低部位、減少押注，這是今日權值熄火、漲幅收斂的最大背景。</li>
+<li><strong>外資整體買賣超待明日盤後公告</strong>確認方向。</li>
+</ul>
+<hr />
+<h2>05 ── 國際局勢（美股 6/16 收盤 / 日股 6/17 收盤）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">市場</th>
+<th style="text-align: left;">指數</th>
+<th style="text-align: right;">收盤</th>
+<th style="text-align: right;">漲跌</th>
+<th style="text-align: left;">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">S&amp;P 500</td>
+<td style="text-align: left;">6/16</td>
+<td style="text-align: right;">7,511.35</td>
+<td style="text-align: right;"><strong>-0.57%</strong></td>
+<td style="text-align: left;">科技股承壓，FOMC 前獲利了結</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nasdaq</td>
+<td style="text-align: left;">6/16</td>
+<td style="text-align: right;">26,376.34</td>
+<td style="text-align: right;"><strong>-1.15%</strong></td>
+<td style="text-align: left;">科技股領跌，晶片股回檔</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dow Jones</td>
+<td style="text-align: left;">6/16</td>
+<td style="text-align: right;">51,999.67</td>
+<td style="text-align: right;"><strong>+0.64%</strong></td>
+<td style="text-align: left;">連二日創新高（+328 點）資金轉防禦/價值</td>
+</tr>
+<tr>
+<td style="text-align: left;">日經平均</td>
+<td style="text-align: left;">6/17</td>
+<td style="text-align: right;">69,902.25</td>
+<td style="text-align: right;"><strong>+0.72%</strong></td>
+<td style="text-align: left;">五連漲、三日創高，TOPIX 首破 4,000 點</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>美股內部出現「權值科技 vs 價值」的分歧</strong>：</p>
+<ol>
+<li>道瓊連二日創高、Nasdaq 與 S&amp;P 卻收黑，反映 FOMC 決議前<strong>資金從高 PE 科技股轉向價值/防禦股</strong>——這與台股今日「權值熄火、資金擴散」的結構幾乎一致。</li>
+<li>日經續創史高、TOPIX 首度站上 4,000 點，亞股 risk-on 情緒仍在，但領漲棒子也從半導體交棒給金融等落後價值股。</li>
+</ol>
+<hr />
+<h2>06 ── 今日關鍵事件：FOMC 利率決議在即</h2>
+<p><strong>事件</strong></p>
+<ul>
+<li>美國聯準會（Fed）利率決議將於<strong>台灣時間 6/18 清晨</strong>揭曉，隨後 Powell 召開記者會。這是本週全球資金最大的觀望點。</li>
+<li>背景：5 月 CPI 4.2% 通膨黏著仍在、美伊終戰使油價回落有助壓通膨——兩股力量拉扯下，市場高度關注 Fed 對後續降息路徑的措辭。</li>
+</ul>
+<p><strong>對台股的傳導鏈</strong></p>
+<ul>
+<li><strong>決議前</strong> → 全球資金降低押注、權值股獲利了結（今日台積電/聯發科、美股 Nasdaq 同步休息）。</li>
+<li><strong>決議後</strong>（明日盤面）→ 若 Powell 釋出鴿派/降息訊號，AI 高 PE 科技股有望再獲動能；若維持鷹派、強調通膨黏著，高估值科技股恐再承壓，資金續往價值股擴散。</li>
+<li>另一變數：<strong>美伊終戰協議 6/19 正式簽署</strong>在即，若順利落地是 relief rally 的延續助力，生變則可能回吐地緣利多。</li>
+</ul>
+<hr />
+<h2>07 ── 上漲原因判斷：反彈還是反轉？</h2>
+<p>今日小漲 <strong>+0.15%（連三紅）</strong> 歸因：</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">因素</th>
+<th style="text-align: left;">影響</th>
+<th style="text-align: left;">類型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">落後族群補漲</td>
+<td style="text-align: left;">景碩/友達/矽晶圓/光學多檔噴出</td>
+<td style="text-align: left;">輪動補漲</td>
+</tr>
+<tr>
+<td style="text-align: left;">權值獲利了結</td>
+<td style="text-align: left;">台積電 -0.6%、聯發科 -2.2% 休息</td>
+<td style="text-align: left;">高檔調節</td>
+</tr>
+<tr>
+<td style="text-align: left;">FOMC 前觀望</td>
+<td style="text-align: left;">全球資金降低押注、收手等決議</td>
+<td style="text-align: left;">事件觀望</td>
+</tr>
+<tr>
+<td style="text-align: left;">日經續創高</td>
+<td style="text-align: left;">亞股 risk-on 情緒延續</td>
+<td style="text-align: left;">市場情緒</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>結論：連三紅但動能明顯收斂，盤面進入「反彈中繼、等 FOMC 定方向」的觀望階段。</strong> 從 6/15 的全面普漲（+2.78%）→ 6/17 權值休息、資金擴散到落後股（+0.15%），這是健康的換手而非退潮（量能持平、廣度仍佳）；但也意味著<strong>反彈的容易段已過，接下來要靠 FOMC 結果與權值能否回神來決定方向</strong>。在 Fed 表態前，不宜把連三紅當成趨勢反轉確認。</p>
+<hr />
+<h2>08 ── 明日觀察訊號</h2>
+<p><strong>偏多訊號</strong></p>
+<ol>
+<li>FOMC 釋出鴿派/降息訊號 → AI 高 PE 科技股估值修復再延續</li>
+<li>費半（SOX）決議後夜盤翻紅 → 確認晶片股壓力解除</li>
+<li>權值雙雄（台積電、聯發科）止穩回神 → 指數續攻動能歸位</li>
+<li>外資對台股整體由賣轉買（明早盤後公告確認）</li>
+</ol>
+<p><strong>偏空/觀察訊號</strong></p>
+<ul>
+<li>FOMC 維持鷹派、強調通膨黏著 → 高估值科技股恐再承壓</li>
+<li>Nasdaq/費半續弱擴散 → 留意 AI 鏈估值回檔是否傳導台股權值</li>
+<li>美伊協議 6/19 簽署前若生變 → 地緣利多可能回吐</li>
+<li>連三紅後若量縮價跌、權值持續休息 → 短線追價力道退潮，提防獲利了結</li>
+</ul>
+<hr />
+<p>⚠️ 本報告內容來自公開市場資料整理，<strong>非投資建議</strong>，盈虧自負。</p>
+</div></body></html>
