@@ -1,0 +1,390 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>封測 / 探針卡 — 看懂金流 × 週末快充</title>
+<style>
+:root{--bg:#EDE8E1;--card:#FBF9F6;--ink:#4A4540;--muted:#9A938B;--faint:#B3ACA2;
+--line:#E3DCD2;--sage:#9AAB97;--sage-d:#5E7A57;--clay:#C2A29A;--purple:#A292A8;
+--warn:#B07A5A;--soft:#F4EFE8;--peach:#FAF0E6;--head:#EAEFE7;--stripe:#FAF6F0;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Segoe UI,Helvetica,Arial,sans-serif;
+line-height:1.92;font-size:17px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:26px auto;padding:48px 44px 88px;background:var(--card);
+border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 34px rgba(74,69,64,.09);counter-reset:sec;}
+@media(max-width:700px){.wrap{margin:0;border-radius:0;border:0;padding:34px 18px 68px;}}
+.home{font-size:.86em;color:var(--muted);margin:0 0 26px;}
+.home a{color:var(--sage-d);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.kicker{font-size:.8em;letter-spacing:.14em;color:var(--clay);font-weight:700;margin:0 0 .7em;}
+h1{font-size:2.05em;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin:.05em 0 .25em;color:#3F3A35;}
+.deck{font-size:1.16em;color:var(--muted);font-weight:500;margin:0 0 1.2em;line-height:1.62;}
+hr.rule{border:0;height:3px;background:linear-gradient(90deg,var(--sage) 0,var(--sage) 64px,var(--line) 64px);
+border-radius:3px;margin:0 0 2.4em;}
+h2{counter-increment:sec;font-size:1.34em;font-weight:750;letter-spacing:-.004em;color:#3F3A35;
+margin:2.9em 0 1em;padding-bottom:.5em;border-bottom:2px solid var(--line);}
+h2::before{content:counter(sec,decimal-leading-zero);display:inline-block;background:var(--sage);color:#fff;
+font-size:.66em;font-weight:700;padding:.22em .66em;border-radius:9px;margin-right:.72em;
+vertical-align:.14em;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+h3{font-size:1.12em;font-weight:700;margin:1.9em 0 .55em;color:var(--sage-d);}
+h4{font-size:1em;font-weight:700;margin:1.3em 0 .35em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;color:#37332E;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--sage-d);}
+ul,ol{padding-left:1.5em;margin:.6em 0;}li{margin:.46em 0;}
+ul ul{margin:.34em 0;}
+blockquote{margin:1.4em 0;padding:.95em 1.25em;background:var(--soft);border:1px solid var(--line);
+border-left:4px solid var(--sage);border-radius:12px;color:#5A544D;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:#37332E;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;margin:1.4em auto;font-size:.92em;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+text-align:left;vertical-align:top;line-height:1.55;overflow-wrap:normal;word-break:normal;line-break:strict;}
+th{white-space:nowrap;}
+td:first-child{white-space:nowrap;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--head);color:var(--sage-d);font-weight:700;}
+tbody tr:nth-child(even) td{background:var(--stripe);}
+tbody tr:hover td{background:#F1ECE3;}
+.cols{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.4em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:1em 0;}
+code{background:var(--soft);padding:.13em .45em;border-radius:6px;font-size:.88em;
+font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.1em .62em;border-radius:999px;
+margin-right:.4em;vertical-align:.08em;}
+.t-main{background:#E4EDE0;color:#56754F;}
+.t-theme{background:#F4EAD4;color:#A87B2E;}
+.t-weak{background:#F1E0DB;color:#B0604E;}
+.warn{margin-top:2.9em;padding:1em 1.25em;background:var(--peach);border:1px solid #ECDCC8;
+border-radius:13px;font-size:.86em;color:#8A6F56;line-height:1.78;}
+.meta-foot{margin-top:1.5em;font-size:.82em;color:var(--faint);}
+/* ---- 首頁 ---- */
+.lead{font-size:1.15em;color:var(--muted);margin:0 0 2.6em;line-height:1.68;}
+.sec-h{font-size:1.22em;font-weight:750;color:#3F3A35;margin:2.6em 0 .25em;}
+.sec-sub{color:var(--muted);font-size:.93em;margin:.15em 0 1.2em;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}}
+.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:15px;
+text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
+.card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 7px 20px rgba(94,122,87,.13);}
+.card .ct{font-weight:750;font-size:1.05em;color:#3F3A35;}
+.card .cd{color:var(--muted);font-size:.89em;margin-top:.3em;line-height:1.55;}
+.flowlist{list-style:none;padding:0;margin:0;}
+.flowlist li{margin:0;border-bottom:1px solid var(--line);}
+.flowlist li:last-child{border-bottom:0;}
+.flowlist a{display:flex;gap:16px;align-items:baseline;padding:15px 6px;text-decoration:none;color:var(--ink);transition:.14s;}
+.flowlist a:hover{color:var(--sage-d);background:var(--stripe);border-radius:8px;}
+.flowlist .fd{font-variant-numeric:tabular-nums;color:var(--sage-d);font-size:.92em;min-width:60px;font-weight:700;}
+.flowlist .ft{flex:1;}
+@media print{body{background:#fff;}.wrap{box-shadow:none;max-width:100%;border:0;}}
+</style>
+<meta name="x-kind" content="charge">
+<meta name="x-title" content="封測 / 探針卡">
+<meta name="x-deck" content="一片 AI 晶片再強，也要先被「針」戳過、被「廠」封裝好才能出貨——為什麼這條最後一哩，其實是兩種完全不同的生意？">
+<meta name="x-date" content="2026-07-12">
+<meta name="x-order" content="50">
+</head>
+<body><div class="wrap">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<p class="kicker">週末快充 · 白話文看懂產業</p>
+<h1>封測 / 探針卡</h1>
+<p class="deck">一片 AI 晶片再強，也要先被「針」戳過、被「廠」封裝好才能出貨——為什麼這條最後一哩，其實是兩種完全不同的生意？</p>
+<hr class="rule">
+<blockquote>
+<p><strong>一句話先講：</strong> 晶片做好之後，還要過兩關才能出貨——先用一片佈滿細針的「探針卡」去戳它、測它會不會壞，再送到「封測廠」封裝好、做最後一次測試。市場習慣把這兩關統稱「封測」，但它們其實是兩種生意：<strong>探針卡是賣耗材的（毛利率 45～56%），封測廠是出租產能的（毛利率 15～36%）</strong>。看懂這條分界，你才不會拿同一把尺去量兩種公司，然後得出錯誤的「誰比較便宜」。</p>
+</blockquote>
+<h2>你以為封測就是日月光？這條鏈上其實有兩種公司</h2>
+<p>講到封測，多數人第一個想到日月光——全球最大的封裝測試廠。沒錯，它是這條鏈上最大的公司。</p>
+<p>但如果你把日月光、京元電、穎崴、精測放在同一張表上比本益比，你會得到一堆矛盾的結論：有的毛利率 15%、有的 55%；有的股價五十幾塊、有的七千多塊。<strong>不是誰便宜誰貴的問題，是它們根本不在做同一種生意。</strong></p>
+<h2>先搞懂主角：一片晶片切下來之後，還要過哪兩關？</h2>
+<p>一片十二吋晶圓上，密密麻麻排著幾百顆晶片（裸晶）。它們還沒被切開、還沒被包起來，也還沒有人知道哪幾顆是壞的。</p>
+<p><strong>第一關：中段測試——用「探針卡」去戳。</strong></p>
+<p>探針卡是一片圓盤，上面佈滿幾千到上萬根極細的金屬探針。它壓到晶圓上，每根針精準戳中一顆晶片的接點，通電、量訊號，把壞的挑出來。</p>
+<ul>
+<li>針會磨損。戳到一定次數就得換卡。</li>
+<li>每一款新晶片的接點位置都不一樣，客戶<strong>每導入一顆新晶片，就要重新開一副新的探針卡</strong>。</li>
+</ul>
+<p>所以探針卡是<strong>耗材</strong>，而且是隨著客戶推新產品而不斷重複購買的耗材。這是它毛利率能站上五成的原因。</p>
+<p><strong>第二關：後段封裝測試——送進「封測廠」。</strong></p>
+<p>挑出來的好晶片被切下、封裝進外殼、接上腳位，再做一次成品測試，才能出貨。這一關要買昂貴的機台、蓋廠房、養產線。</p>
+<ul>
+<li>機台很貴，折舊很重。</li>
+<li>賺不賺錢，看<strong>稼動率</strong>——機台有沒有滿載在跑。</li>
+</ul>
+<p>所以封測廠（業界叫 OSAT）本質上是<strong>出租產能的代工廠</strong>。毛利率天生就比較薄。</p>
+<blockquote>
+<p>一個生活比喻：<strong>探針卡像賣針頭的，封測廠像開手術房的。</strong> 賣針頭的靠一次次消耗賺錢、毛利高；開手術房的靠排滿刀、把設備折舊攤掉，毛利薄但規模大。</p>
+</blockquote>
+<h2>追源頭：AI 晶片為什麼讓「戳針」和「封裝」一起爆量？</h2>
+<p>跟被動元件、記憶體一樣，源頭都不在這些公司自己身上，而在 AI 晶片。</p>
+<p><strong>一、AI 晶片變大、變複雜，測試點暴增。</strong> 一顆 AI 加速器的接點數是傳統晶片的好幾倍，探針卡上要植的針更多、精度要求更嚴、單價自然更高。</p>
+<p><strong>二、先進封裝把兩關綁在一起。</strong> AI 晶片現在流行把運算晶片和記憶體堆在一起（例如 CoWoS 這類先進封裝），封裝的難度和價值都上去了，封測廠的產能被塞滿。</p>
+<p><strong>三、新品節奏變快。</strong> 每一代新晶片都要一副新的探針卡。當整個產業年年推新架構，探針卡廠的訂單就一波接一波。</p>
+<h2>兩種生意，不能放同一把尺量</h2>
+<p>這是本文最想讓你帶走的東西：</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">探針卡／測試介面</th>
+<th style="text-align: left;">封測廠（OSAT）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="white-space:nowrap;text-align: left;">在賣什麼</td>
+<td style="white-space:nowrap;text-align: left;">耗材、接近設備</td>
+<td style="text-align: left;">產能、代工服務</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">毛利率（本組實測）</td>
+<td style="white-space:nowrap;text-align: left;">45～56%</td>
+<td style="text-align: left;">15～36%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">賺錢關鍵</td>
+<td style="white-space:nowrap;text-align: left;">客戶<strong>推新品的節奏</strong></td>
+<td style="text-align: left;"><strong>稼動率</strong>與折舊</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">該看哪些數字</td>
+<td style="white-space:nowrap;text-align: left;">毛利率、本益比</td>
+<td style="text-align: left;">稼動率、殖利率、股價淨值比</td>
+</tr>
+</tbody>
+</table></div>
+<p>下面兩張表<strong>刻意用不同的欄位</strong>，就是要讓你看見它們是兩種東西。</p>
+<h2>先認識本業（一）：探針卡——耗材印鈔機</h2>
+<p>台灣做探針卡的主要有三家：<strong>穎崴 6515、旺矽 6223、中華精測 6510</strong>。全球的龍頭是美國的 <strong>FormFactor</strong>。</p>
+<p>有趣的是，台灣這三家的毛利率反而比全球龍頭高。這通常不是因為技術碾壓，而是產品組合不同——台廠這幾年把資源押在高階的 AI 晶片測試卡上，而龍頭的產品線更廣、也更平均。</p>
+<p>再往上游一層還有<strong>中探針 6217</strong>，它做的是探針卡裡面那一根根「針」，以及消費電子與車用的 POGO PIN 連接器。<strong>它不是探針卡廠，是零組件供應商</strong>，端市場也不一樣——這是常被混淆的一點。</p>
+<h2>同業比一比</h2>
+<h3>表一：探針卡三家（台廠，新台幣億元，FY2025 年報）</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: left;">代號</th>
+<th style="text-align: right;">2025 營收</th>
+<th style="text-align: right;">毛利率</th>
+<th style="text-align: right;">營益率</th>
+<th style="text-align: right;">本益比</th>
+<th style="text-align: right;">股東權益報酬率</th>
+<th style="text-align: left;">觀察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="white-space:nowrap;text-align: left;">穎崴</td>
+<td style="white-space:nowrap;text-align: left;">6515</td>
+<td style="white-space:nowrap;text-align: right;">78.6</td>
+<td style="white-space:nowrap;text-align: right;">45.3%</td>
+<td style="white-space:nowrap;text-align: right;">26.3%</td>
+<td style="white-space:nowrap;text-align: right;">166.7</td>
+<td style="white-space:nowrap;text-align: right;">29.8%</td>
+<td style="text-align: left;">六月營收創 60 個月新高，月增 +36%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">旺矽</td>
+<td style="white-space:nowrap;text-align: left;">6223</td>
+<td style="white-space:nowrap;text-align: right;">133.7</td>
+<td style="white-space:nowrap;text-align: right;">55.6%</td>
+<td style="white-space:nowrap;text-align: right;">28.2%</td>
+<td style="white-space:nowrap;text-align: right;">212.7</td>
+<td style="white-space:nowrap;text-align: right;">28.1%</td>
+<td style="text-align: left;">毛利率最高，估值也最高</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">中華精測</td>
+<td style="white-space:nowrap;text-align: left;">6510</td>
+<td style="white-space:nowrap;text-align: right;">48.1</td>
+<td style="white-space:nowrap;text-align: right;">55.5%</td>
+<td style="white-space:nowrap;text-align: right;">24.8%</td>
+<td style="white-space:nowrap;text-align: right;">94.4</td>
+<td style="white-space:nowrap;text-align: right;">12.2%</td>
+<td style="text-align: left;">連四個月營收創高，但 ROE 明顯偏低</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>國際龍頭對照：<strong>FormFactor（FORM）</strong> 2025 營收 7.8 億美元、毛利率 39.3%、營益率 7.7%、本益比 133.3、ROE 6.8%。
+幣別不同（台廠新台幣、美廠美元），<strong>只看規模量級與方向，別硬換算對比</strong>。數據為 stock_data.py 抓的最新年報，股價為 2026-07-09 收盤。</p>
+</blockquote>
+<h3>表二：封測廠五家（台廠，新台幣億元，FY2025 年報）</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: left;">代號</th>
+<th style="text-align: right;">2025 營收</th>
+<th style="text-align: right;">毛利率</th>
+<th style="text-align: right;">營益率</th>
+<th style="text-align: right;">殖利率</th>
+<th style="text-align: right;">股價淨值比</th>
+<th style="text-align: left;">觀察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="white-space:nowrap;text-align: left;">日月光</td>
+<td style="white-space:nowrap;text-align: left;">3711</td>
+<td style="white-space:nowrap;text-align: right;">6,453.9</td>
+<td style="white-space:nowrap;text-align: right;">17.7%</td>
+<td style="white-space:nowrap;text-align: right;">8.0%</td>
+<td style="white-space:nowrap;text-align: right;">0.97%</td>
+<td style="white-space:nowrap;text-align: right;">8.47</td>
+<td style="text-align: left;">體量是其他家的二十倍以上</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">京元電</td>
+<td style="white-space:nowrap;text-align: left;">2449</td>
+<td style="white-space:nowrap;text-align: right;">349.3</td>
+<td style="white-space:nowrap;text-align: right;">35.8%</td>
+<td style="white-space:nowrap;text-align: right;">25.8%</td>
+<td style="white-space:nowrap;text-align: right;">1.30%</td>
+<td style="white-space:nowrap;text-align: right;">6.93</td>
+<td style="text-align: left;">偏測試，毛利率遠高於同組</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">欣銓</td>
+<td style="white-space:nowrap;text-align: left;">3264</td>
+<td style="white-space:nowrap;text-align: right;">140.3</td>
+<td style="white-space:nowrap;text-align: right;">36.3%</td>
+<td style="white-space:nowrap;text-align: right;">25.4%</td>
+<td style="white-space:nowrap;text-align: right;">1.79%</td>
+<td style="white-space:nowrap;text-align: right;">5.50</td>
+<td style="text-align: left;">唯一連兩個月營收創高</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">超豐</td>
+<td style="white-space:nowrap;text-align: left;">2441</td>
+<td style="white-space:nowrap;text-align: right;">167.6</td>
+<td style="white-space:nowrap;text-align: right;">20.2%</td>
+<td style="white-space:nowrap;text-align: right;">16.2%</td>
+<td style="white-space:nowrap;text-align: right;">2.08%</td>
+<td style="white-space:nowrap;text-align: right;">3.26</td>
+<td style="text-align: left;">六月營收創高，殖利率最高</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">華泰</td>
+<td style="white-space:nowrap;text-align: left;">2329</td>
+<td style="white-space:nowrap;text-align: right;">196.8</td>
+<td style="white-space:nowrap;text-align: right;">15.1%</td>
+<td style="white-space:nowrap;text-align: right;">7.7%</td>
+<td style="white-space:nowrap;text-align: right;">1.95%</td>
+<td style="white-space:nowrap;text-align: right;">2.96</td>
+<td style="text-align: left;">六月年增僅 +3.6%，全組最弱</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>國際對照：<strong>Amkor（AMKR）</strong> 2025 營收 67.1 億美元、毛利率 14.0%、營益率 7.0%、ROE 10.0%。
+<strong>日月光的營收是其他四家的二十倍以上，看量級、別看平均。</strong> 這張表沒有列平均值，就是因為平均會被它整個帶偏。
+幣別不同，<strong>只看規模量級與方向，別硬換算對比</strong>。</p>
+</blockquote>
+<h2>先認識本業（二）：封測廠——產能包租公</h2>
+<p>看完表二你應該會發現一件奇怪的事：<strong>同樣叫「封測廠」，京元電和欣銓的毛利率有 36%，日月光和華泰卻只有 15～18%。</strong></p>
+<p>因為「OSAT」這個標籤本身就模糊了一條分界：</p>
+<ul>
+<li><strong>偏測試的</strong>（京元電、欣銓）：機台密集、單價高、毛利率自然高。</li>
+<li><strong>偏封裝的</strong>（日月光、華泰、超豐）：材料與人力占比高，毛利率結構性偏薄。</li>
+</ul>
+<p>所以就算在同一張表裡，你也還要再切一刀。這也是為什麼「這檔本益比比較低所以比較便宜」這種說法，在這個族群裡特別容易出錯。</p>
+<h2>數字會說話：六月營收，誰真創高、誰只是低基期</h2>
+<p>六月營收出爐（資料來自公開資訊觀測站的月營收彙總表），拿每一家近 60 個月的歷史去比對，結果如下：</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: right;">六月營收（億）</th>
+<th style="text-align: center;">是否創 60 個月新高</th>
+<th style="text-align: right;">年增率</th>
+<th style="text-align: right;">月增率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="white-space:nowrap;text-align: left;">穎崴 6515</td>
+<td style="white-space:nowrap;text-align: right;">14.60</td>
+<td style="text-align: center;">✅</td>
+<td style="white-space:nowrap;text-align: right;">+287.9%</td>
+<td style="white-space:nowrap;text-align: right;">+36.0%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">中華精測 6510</td>
+<td style="white-space:nowrap;text-align: right;">5.74</td>
+<td style="text-align: center;">✅</td>
+<td style="white-space:nowrap;text-align: right;">+40.2%</td>
+<td style="white-space:nowrap;text-align: right;">+5.8%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">欣銓 3264</td>
+<td style="white-space:nowrap;text-align: right;">15.52</td>
+<td style="text-align: center;">✅</td>
+<td style="white-space:nowrap;text-align: right;">+36.6%</td>
+<td style="white-space:nowrap;text-align: right;">+2.3%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">超豐 2441</td>
+<td style="white-space:nowrap;text-align: right;">18.75</td>
+<td style="text-align: center;">✅</td>
+<td style="white-space:nowrap;text-align: right;">+33.2%</td>
+<td style="white-space:nowrap;text-align: right;">+7.5%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">旺矽 6223</td>
+<td style="white-space:nowrap;text-align: right;">18.33</td>
+<td style="text-align: center;">—</td>
+<td style="white-space:nowrap;text-align: right;">+65.1%</td>
+<td style="white-space:nowrap;text-align: right;">−3.9%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">京元電 2449</td>
+<td style="white-space:nowrap;text-align: right;">36.22</td>
+<td style="text-align: center;">—</td>
+<td style="white-space:nowrap;text-align: right;">+28.6%</td>
+<td style="white-space:nowrap;text-align: right;">−4.1%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">華泰 2329</td>
+<td style="white-space:nowrap;text-align: right;">18.22</td>
+<td style="text-align: center;">—</td>
+<td style="white-space:nowrap;text-align: right;">+3.6%</td>
+<td style="white-space:nowrap;text-align: right;">−1.9%</td>
+</tr>
+<tr>
+<td style="white-space:nowrap;text-align: left;">日月光 3711</td>
+<td style="white-space:nowrap;text-align: right;">657.83</td>
+<td style="text-align: center;">—</td>
+<td style="white-space:nowrap;text-align: right;">+32.9%</td>
+<td style="white-space:nowrap;text-align: right;">+4.4%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>這張表有三個地方，看新聞標題絕對看不出來：</strong></p>
+<p><strong>一、穎崴的「年增 287.9%」有九成是假的。</strong> 不是數字假，是比較基準假——去年六月它的營收只有 3.76 億，低到不能當基準。任何數字除以一個很小的分母，都會得到嚇人的百分比。真正代表動能的是<strong>月增 +36.0%</strong>，那個才是硬的。</p>
+<blockquote>
+<p><strong>這是看月營收最常踩的坑</strong>：年增率被低基期放大時，它衡量的是「去年有多慘」，不是「今年有多好」。</p>
+</blockquote>
+<p><strong>二、真正最穩的是中華精測。</strong> 它三月、四月、五月、六月連續四個月創新高（4.87 → 5.23 → 5.43 → 5.74 億），過去十二個月是一條幾乎沒有回頭的上升線。沒有爆衝，也沒有回落。<strong>這種形狀通常比單月暴衝更難得。</strong></p>
+<p><strong>三、旺矽、京元電、華泰的六月，其實是從五月的高點回落的。</strong> 它們的年增率還很漂亮（旺矽 +65.1%），但那是跟去年比。跟上個月比，動能是往下的。<strong>年增率看趨勢，月增率看轉折。</strong></p>
+<h2>心法（不是報牌）</h2>
+<p><strong>第一，先問這家公司在賣什麼。</strong> 賣耗材的（探針卡）和出租產能的（封測廠），該看的數字完全不同。前者看毛利率和新品節奏，後者看稼動率和折舊。用錯尺，結論就是錯的。</p>
+<p><strong>第二，年增率會騙人，月增率比較誠實。</strong> 尤其是從谷底翻上來的公司，低基期會把年增率吹得很漂亮。多看一眼月增率，多看一眼絕對金額。</p>
+<p><strong>第三，本益比低不一定叫便宜。</strong> 有的公司本益比低，是因為它的股東權益報酬率本來就低（表一裡就有一個例子）；有的公司本益比低，是因為它的營收根本沒在成長（表二裡也有一個）。<strong>便宜通常有便宜的理由，你的工作是找出那個理由，然後判斷它會不會改變。</strong></p>
+<p><strong>第四，營收創高只是入場券，毛利率才是考卷。</strong> 這個族群的股價已經反映了一大段「AI 測試需求很旺」的故事。故事要繼續，得靠季報上的毛利率來證明——營收衝高但毛利率沒跟上，代表是靠殺價換來的量。<strong>每季財報，先看毛利率。</strong></p>
+<p><strong>第五，一天的止穩不是止穩。</strong> 這個族群七月上旬經歷過一次全族群的獲利了結，好幾檔連續跌停。要注意的是：那次殺盤裡，外資的買賣超其實很小——它比較像是漲多了的籌碼在互相踩踏，而不是有人拿到什麼壞消息在跑。<strong>分清楚「籌碼過熱」和「基本面轉壞」，是這個族群現階段最重要的一件事。</strong></p>
+<h2>附錄：看報告、目標價的迷思</h2>
+<p>你會常常看到這種新聞：「某外資調升某探針卡廠目標價至 X 元」。</p>
+<p>拆開來看，這類報告通常是三個步驟：①用一堆金融術語描述產業有多好 ②估一個未來幾年的成長率 ③把成長率乘上一個倍數，得到目標價。</p>
+<p>問題出在第②步。<strong>那個成長率是假設，不是事實。</strong> 而且它通常是把「最近幾個月的好日子」線性外推出去的。當一家公司的月營收剛從谷底翻上來、年增率被低基期放大成 +287%，用那個數字去外推，會得到一個非常好看、但完全站不住腳的目標價。</p>
+<p><strong>目標價不是預測，是推銷。</strong> 它告訴你的其實只有一件事：這位分析師假設了什麼。你該做的不是接受那個數字，而是去問——<strong>這些假設，需要公司交出什麼樣的成績單才成立？</strong> 然後在下一季財報上，親眼確認它有沒有交出來。</p>
+<p>這比記住任何一個數字都有用。</p>
+<hr />
+<p>想看整條 AI 鏈上其他環節，可對照 <a href="memory.html">記憶體</a>、<a href="passive.html">被動元件 / MLCC</a>、<a href="ic-asic.html">IC 設計 / ASIC</a>。</p>
+<div class="warn">警語：本文內容僅為市場金流、產業趨勢及公開資訊之整理與觀察分享，不構成任何證券、期貨或其他金融商品之投資建議、買賣邀約、推薦或勸誘。文中所提個股、產業或市場走勢均不保證未來表現，亦不代表任何投資成果之承諾。投資具風險，請於投資前自行審慎評估，並依自身財務狀況與風險承受度，獨立做出投資決策，相關投資盈虧應由投資人自行負責。</div>
+</div></body></html>
