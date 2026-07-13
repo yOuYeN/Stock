@@ -1,0 +1,526 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>假平盤、真屠殺：加權盤中漲 900 點被韓股熔斷一棒打回，收 +25.91 平盤——SK 海力士寫下 -15.37% 歷史最大單日跌幅、KOSPI 熔斷，被動元件全球同步崩；錢只往「有外資報告背書」的三個地方跑 — 看懂金流 × 週末快充</title>
+<style>
+:root{
+  --bg:#F7F4EC;--ink:#1B1815;--muted:#6E675E;--line:#D8D2C6;--rule:#1B1815;
+  --accent:#B8332A;--up:#B8332A;--down:#2E7A52;--soft:#EFEADC;--maxw:1020px;
+  --tagA:#8A2C24;--tagB:#8A6420;--tagC:#5B5348;
+  --font:"Songti TC","Songti SC","Noto Serif TC",serif;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+  font-size:17.5px;line-height:1.95;-webkit-font-smoothing:antialiased;}
+.tape{position:sticky;top:0;z-index:50;overflow:hidden;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  background:var(--soft);box-shadow:0 1px 0 rgba(27,24,21,.04);}
+.tape-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:tape 46s linear infinite;}
+.tape:hover .tape-track{animation-play-state:paused;}
+.tape-set{display:inline-flex;align-items:center;padding:7px 0;}
+.tk{padding:0 1.35em;font-size:.86em;letter-spacing:.01em;font-variant-numeric:tabular-nums;border-right:1px solid var(--line);}
+.tk .nm{color:var(--muted);margin-right:.5em;}
+.tk .up{color:var(--up);font-weight:700;}
+.tk .dn{color:var(--down);font-weight:700;}
+.tk .nt{color:var(--muted);font-weight:700;}
+@keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tape-track{animation:none;}.tape{overflow-x:auto;}}
+.masthead{max-width:var(--maxw);margin:0 auto;padding:24px 22px 0;}
+.mh-in{border-top:4px solid var(--rule);border-bottom:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:baseline;padding:.5em 2px;flex-wrap:wrap;gap:.4em;}
+.mh-brand{font-weight:900;font-size:1.3em;letter-spacing:.34em;}
+.mh-date{color:var(--muted);font-size:.85em;letter-spacing:.06em;}
+.layout{max-width:var(--maxw);margin:0 auto;padding:26px 22px 90px;}
+.article{counter-reset:sec;}
+.home{font-size:.85em;color:var(--muted);margin:14px 0 20px;}
+.home a{color:var(--accent);text-decoration:none;font-weight:600;}
+.home a:hover{text-decoration:underline;}
+.art-head{text-align:center;margin:0 0 .4em;}
+.kicker{font-size:.78em;letter-spacing:.4em;text-indent:.4em;color:var(--accent);font-weight:700;margin:0 0 1em;}
+h1{font-size:2.2em;line-height:1.36;font-weight:900;letter-spacing:.005em;margin:.1em auto .35em;max-width:none;}
+.deck{font-size:1.05em;color:var(--muted);font-weight:500;margin:0 auto 1.4em;max-width:34em;line-height:1.6;}
+.head-rule{border:0;height:0;border-top:3px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding-top:3px;max-width:var(--maxw);margin:.4em auto 0;}
+h2{counter-increment:sec;font-size:1.44em;font-weight:900;margin:1.9em 0 .85em;
+  border-top:3px solid var(--rule);padding-top:.5em;}
+h2::before{content:counter(sec,decimal-leading-zero);color:var(--accent);margin-right:.55em;
+  font-variant-numeric:tabular-nums;font-weight:900;}
+h3{font-size:1.12em;font-weight:700;margin:1.6em 0 .5em;color:var(--accent);}
+h4{font-size:1em;font-weight:700;margin:1.2em 0 .3em;color:var(--muted);}
+p{margin:.8em 0;}
+strong{font-weight:700;}
+em{color:var(--muted);font-style:normal;}
+a{color:var(--accent);}
+ul,ol{padding-left:2.4em;margin:.6em 0;}li{margin:.5em 0;}
+ul ul{margin:.3em 0;}
+blockquote{margin:1.4em 0;padding:.4em 1.1em;background:transparent;border-left:3px solid var(--accent);color:#4E4840;font-size:.98em;}
+blockquote p{margin:.3em 0;}
+blockquote strong{color:var(--ink);}
+.cols{display:flex;gap:20px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:1.3em auto;}
+.tw>table{margin:0;}
+.cols>.tw{flex:0 1 auto;margin:.8em 0;}
+table{border-collapse:separate;border-spacing:0;width:auto;max-width:100%;font-size:.9em;
+  border:1px solid var(--rule);background:#FCFAF3;}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 14px;
+  text-align:left;vertical-align:top;line-height:1.55;}
+th:last-child,td:last-child{border-right:0;}
+tbody tr:last-child td{border-bottom:0;}
+thead th{background:var(--soft);color:var(--ink);font-weight:900;white-space:nowrap;border-bottom:2px solid var(--rule);}
+code{background:var(--soft);padding:.13em .45em;border-radius:4px;font-size:.88em;
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#6b5d4f;}
+.tag{display:inline-block;font-size:.78em;font-weight:700;padding:.08em .6em;border-radius:0;
+  margin-right:.4em;vertical-align:.08em;border:1px solid currentColor;}
+.t-main{color:var(--tagA);}
+.t-theme{color:var(--tagB);}
+.t-weak{color:var(--tagC);}
+.warn{margin-top:2.6em;padding:1em 1.2em;background:transparent;border:1px solid var(--line);
+  border-left:4px solid var(--accent);font-size:.85em;color:#6E675E;line-height:1.8;}
+.meta-foot{margin-top:2.6em;font-size:.8em;color:var(--muted);}
+@media(max-width:720px){
+  body{font-size:16.5px;}
+  h1{font-size:1.7em;line-height:1.4;}
+  .layout,.masthead{padding-left:14px;padding-right:14px;}
+  .mh-brand{letter-spacing:.2em;font-size:1.1em;}}
+@media print{body{background:#fff;}.tape{display:none;}}
+</style>
+<meta name="x-kind" content="flow">
+<meta name="x-title" content="假平盤、真屠殺：加權盤中漲 900 點被韓股熔斷一棒打回，收 +25.91 平盤——SK 海力士寫下 -15.37% 歷史最大單日跌幅、KOSPI 熔斷，被動元件全球同步崩；錢只往「有外資報告背書」的三個地方跑">
+<meta name="x-deck" content="7/13 看懂金流_國際到台股">
+<meta name="x-date" content="2026-07-13">
+<meta name="x-order" content="50">
+</head>
+<body>
+<div class="tape" aria-hidden="true"><div class="tape-track"><span class="tape-set"><span class="tk"><span class="nm">台積電 2330</span><span class="up">▲1.0</span></span><span class="tk"><span class="nm">國巨 2327</span><span class="dn">▼9.3</span></span><span class="tk"><span class="nm">南亞科 2408</span><span class="dn">▼2.9</span></span><span class="tk"><span class="nm">臻鼎-KY 4958</span><span class="up">▲9.9</span></span><span class="tk"><span class="nm">南電 8046</span><span class="up">▲4.5</span></span><span class="tk"><span class="nm">欣興 3037</span><span class="up">▲3.2</span></span><span class="tk"><span class="nm">聯發科 2454</span><span class="dn">▼2.5</span></span><span class="tk"><span class="nm">華邦電 2344</span><span class="dn">▼5.4</span></span><span class="tk"><span class="nm">群創 3481</span><span class="dn">▼6.6</span></span><span class="tk"><span class="nm">日月光投控 3711</span><span class="dn">▼1.0</span></span><span class="tk"><span class="nm">台達電 2308</span><span class="up">▲0.5</span></span><span class="tk"><span class="nm">南亞 1303</span><span class="up">▲9.9</span></span><span class="tk"><span class="nm">華通 2313</span><span class="up">▲5.4</span></span><span class="tk"><span class="nm">友達 2409</span><span class="dn">▼7.0</span></span><span class="tk"><span class="nm">合晶 6182</span><span class="up">▲9.9</span></span><span class="tk"><span class="nm">禾伸堂 3026</span><span class="dn">▼10.0</span></span><span class="tk"><span class="nm">南茂 8150</span><span class="dn">▼1.7</span></span><span class="tk"><span class="nm">聯茂 6213</span><span class="dn">▼6.6</span></span></span><span class="tape-set"><span class="tk"><span class="nm">台積電 2330</span><span class="up">▲1.0</span></span><span class="tk"><span class="nm">國巨 2327</span><span class="dn">▼9.3</span></span><span class="tk"><span class="nm">南亞科 2408</span><span class="dn">▼2.9</span></span><span class="tk"><span class="nm">臻鼎-KY 4958</span><span class="up">▲9.9</span></span><span class="tk"><span class="nm">南電 8046</span><span class="up">▲4.5</span></span><span class="tk"><span class="nm">欣興 3037</span><span class="up">▲3.2</span></span><span class="tk"><span class="nm">聯發科 2454</span><span class="dn">▼2.5</span></span><span class="tk"><span class="nm">華邦電 2344</span><span class="dn">▼5.4</span></span><span class="tk"><span class="nm">群創 3481</span><span class="dn">▼6.6</span></span><span class="tk"><span class="nm">日月光投控 3711</span><span class="dn">▼1.0</span></span><span class="tk"><span class="nm">台達電 2308</span><span class="up">▲0.5</span></span><span class="tk"><span class="nm">南亞 1303</span><span class="up">▲9.9</span></span><span class="tk"><span class="nm">華通 2313</span><span class="up">▲5.4</span></span><span class="tk"><span class="nm">友達 2409</span><span class="dn">▼7.0</span></span><span class="tk"><span class="nm">合晶 6182</span><span class="up">▲9.9</span></span><span class="tk"><span class="nm">禾伸堂 3026</span><span class="dn">▼10.0</span></span><span class="tk"><span class="nm">南茂 8150</span><span class="dn">▼1.7</span></span><span class="tk"><span class="nm">聯茂 6213</span><span class="dn">▼6.6</span></span></span></div></div>
+<header class="masthead"><div class="mh-in">
+<span class="mh-brand">看懂金流</span>
+<span class="mh-date">2026 年 7 月 13 日（週一） · 國際到台股 · 每日盤後</span>
+</div></header>
+<div class="layout"><main class="article">
+<p class="home"><a href="../index.html">← 回首頁</a></p>
+<header class="art-head">
+<p class="kicker">看懂金流 · 國際到台股</p>
+<h1>假平盤、真屠殺：加權盤中漲 900 點被韓股熔斷一棒打回，收 +25.91 平盤——SK 海力士寫下 -15.37% 歷史最大單日跌幅、KOSPI 熔斷，被動元件全球同步崩；錢只往「有外資報告背書」的三個地方跑</h1>
+<p class="deck">7/13 看懂金流_國際到台股</p>
+</header>
+<hr class="head-rule">
+<h2>一句定調</h2>
+<p><strong>指數幾乎沒動，底下卻是血流成河。</strong> 加權收 <strong>45,380.52（+25.91，+0.06%）</strong>——但這個「平盤」是全天 <strong>1,058 點振幅</strong>擠出來的：因 7/10 巴威颱風休市，早盤補漲一度攻到 <strong>46,330.91（漲逾 900 點）</strong>，午後韓股觸發熔斷，一棒把 900 點全部打回。<strong>櫃買 419.90（-5.09，-1.20%）逆勢重挫</strong>，成交值上市 <strong>1.0677 兆</strong>（較 7/9 的 9,968 億放大）。</p>
+<p><strong>價平、量增、櫃買殺——這是典型的「高檔換手」不是「上漲」</strong>：指數靠少數權值與漲停股撐住門面（<span class="tag t-theme">台積電 +1.0% 收 2,440</span>、南亞漲停、臻鼎漲停），而中小型題材股整排倒下。今天真正的主角不在台北，在首爾。</p>
+<hr />
+<h2>成交值 TOP 20（7/13 官方成交金額）</h2>
+<div class="cols">
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">排名</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">代號</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">名稱</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">收盤</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">漲跌 %</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">成交值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">1</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2330</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">台積電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2,440.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+1.0</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">867 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2327</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">國巨</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">816.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>-9.3</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">608 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2408</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">南亞科</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">423.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-2.9</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">579 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">4</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">4958</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">臻鼎-KY</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">646.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+9.9</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">462 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">5</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">8046</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">南電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">1,270.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+4.5</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">336 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">6</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3037</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">欣興</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">903.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+3.2</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">310 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">7</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2454</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">聯發科</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3,825.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-2.5</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">276 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">8</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2344</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">華邦電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">167.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-5.4</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">259 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">9</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3481</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">群創</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">61.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-6.6</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">257 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">10</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3711</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">日月光投控</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">670.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-1.0</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">187 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">11</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2308</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">台達電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">1,890.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+0.5</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">179 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">12</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">1303</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">南亞</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">199.50</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+9.9</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">177 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">13</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2313</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">華通</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">235.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+5.4</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">151 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">14</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2409</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">友達</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">29.25</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-7.0</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">151 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">15</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">6182</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">合晶</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">189.50</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+9.9</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">135 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">16</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3026</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">禾伸堂</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">905.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>-10.0</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">130 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">17</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">8150</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">南茂</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">115.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-1.7</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">126 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">18</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">6213</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">聯茂</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">359.50</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-6.6</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">108 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">19</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2303</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">聯電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">153.50</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-1.6</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">106 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">20</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3374</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">精材</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">358.00</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+0.4</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">104 億</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><strong>一眼看懂這張榜</strong>：TOP20 裡漲停三檔（臻鼎、南亞、合晶）、跌停一檔（禾伸堂），三檔重挫逾 6%（群創、友達、聯茂）。<strong>同一張榜上同時出現漲停與跌停，就是「換股不換市」的典型</strong>——錢沒走，只是換邊站。</p>
+<hr />
+<h2>營收 × 金流雷達（六月營收全數申報後首次換月）</h2>
+<p>六月營收申報期限因颱風順延至 7/13，<strong>本欄雷達今天完成換月重掃</strong>（資料年月 11506）。全市場成交值前 150 名中，<strong>52 家六月單月營收創近 5 年新高</strong>。</p>
+<p><strong>創高 × 有錢追（兩關都過）＝今天真正的主流：</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">代號</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">名稱</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">成交值</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">今日 %</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">六月營收 YoY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">3037</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">欣興</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">310 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+3.2</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+36.3%</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2308</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">台達電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">179 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+0.5</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+55.4%</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2301</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">光寶科</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">75 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+4.0</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+37.0%</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2382</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">廣達</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">67 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+1.2</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+102.9%</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">5347</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">世界先進</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">53 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+3.2</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+33.6%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>創高卻被殺（一致性警示，今天最該記住的一組）：</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">代號</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">名稱</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">成交值</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">今日 %</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">六月營收 YoY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2327</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">國巨</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">608 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>-9.3</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+38.9%</strong></td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2408</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">南亞科</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">579 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-2.9</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+621.3%</strong></td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">2344</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">華邦電</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">259 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-5.4</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+189.9%</strong></td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">6213</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">聯茂</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">108 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-6.6</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+47.9%</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">8358</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">金居</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">52 億</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-6.6</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">+43.4%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>這張表就是今天的故事</strong>：營收創高的公司被殺得最兇，而漲停的三檔（臻鼎 +32.8%、南亞 +31.8%、合晶 +14.1%）<strong>營收都沒創高</strong>。</p>
+<blockquote>
+<p><strong>判準提醒</strong>：本欄長期說的「主流＝營收創高 ＋ 國際成值，兩關都過」，今天出現罕見的<strong>反向背離</strong>——營收關過了、金流關卻反著走。這種日子不代表基本面錯了，代表<strong>現在定價的不是基本面</strong>。</p>
+</blockquote>
+<hr />
+<h2>族群輪動 × 個股催化劑</h2>
+<p><strong>💀 被動元件 <span class="tag t-weak">轉弱整理</span>——全球同步崩，今天全場最慘</strong></p>
+<ul>
+<li>國巨 <strong>-9.3% 收 816</strong>（608 億、全場第二大量）；<strong>華新科 -10.0%、禾伸堂 -10.0% 雙雙跌停</strong>（禾伸堂 7/9 才站上千元）。</li>
+<li><strong>這不是台股的事，是全球同步</strong>：日本 <strong>太陽誘電 -19.2%、村田 -8.1%、TDK -5.5%</strong>；A 股風華高科跌停；港股建滔積層板重挫逾 18%。</li>
+<li>導火線＝<strong>市場傳言 NVIDIA Rubin Ultra 機櫃可能延到 2028</strong>（輝達隨後否認、確認 2027 年如期交付），但傳言已先把 PCB/CCL/被動整條鏈打殘。</li>
+<li>⚠️ <strong>一致性檢核（本欄長期追蹤的最危險形態）</strong>：國巨六月營收 <strong>YoY +38.9%、創近 5 年新高</strong>，全系列電容 7/1 起漲價、佔營收逾 4 成，TrendForce 仍看 H2 高階 MLCC 報價上行——<strong>基本面全是好消息，股價卻從 7/1 天價 1,220 元起 8 個交易日跌 33.6%</strong>。</li>
+<li>更該注意的是籌碼：國巨 <strong>10 天內爆 2 次違約交割</strong>（累計逾 8,000 萬元、13 家券商申報），投信近 5 日賣超 14,269 張。<strong>當漲價題材還在、股價卻一路破底，通常是籌碼問題不是基本面問題。</strong></li>
+</ul>
+<p><strong>💀 記憶體 <span class="tag t-main">營收創高</span>——史詩級財報，也救不了股價</strong></p>
+<ul>
+<li><strong>南亞科 7/10 法說（休市日照開）交出歷史級數字</strong>：Q2 營收 825.49 億（季增 68.2%）、<strong>毛利率 79.5%（歷史新高、季增 11.6 個百分點）</strong>、稅後淨利 501.92 億、<strong>EPS 14.66 元</strong>；<strong>DRAM ASP 季增逾 60%</strong>；Q3 合約價續高於 Q2、缺貨「延續數季」；<strong>明年資本支出初步規畫逾 2,000 億元</strong>。三大外資喊買、目標價最高 <strong>650 元</strong>。</li>
+<li>結果：7/13 開高 <strong>466.5（+7%）</strong>，終場 <strong>-2.87% 收 423</strong>。華邦電 -5.4%、旺宏 -3.8%。</li>
+<li><strong>當毛利率 79.5% ＋ EPS 14.66 ＋ 外資 TP 650 都撐不住一根紅 K，就代表主導盤面的不是財報，是籌碼與情緒。</strong> 這是今天最重要的一課。</li>
+</ul>
+<p><strong>🔥 載板/PCB <span class="tag t-main">營收創高</span>——今天唯一的多頭主軸</strong></p>
+<ul>
+<li><strong>臻鼎-KY 漲停 +9.9% 收 646</strong>（462 億、全場第四）：<strong>高盛大幅調升目標價</strong>、預估 ABF 載板供應吃緊延續至 2028 年；<strong>外資單日買超 2.1 萬張</strong>；題材＝把高階手機主板的 <strong>mSAP 製程導入高速光模組 PCB</strong>（400G → 800G/1.6T）。六月營收 170.33 億、YoY +32.8%。</li>
+<li>南電 +4.5%、欣興 +3.2%（六月營收 149 億、<strong>YoY +36.3% 創高</strong>）、華通 +5.4%（AI 光模組 mSAP ＋ 低軌衛星）。</li>
+<li>⚠️ 但同族群的<strong>上游 CCL 被殺</strong>：台光電 -3.2%、台燿 -1.3%、<strong>聯茂 -6.6%</strong>（振幅 13.1%）——聯茂六月營收 YoY <strong>+47.9% 創高</strong>，一樣是 Rubin 傳言的受災戶。<strong>同一條鏈，下游被追、上游被殺，這種分裂本身就是警訊。</strong></li>
+</ul>
+<p><strong>🔥 矽晶圓 <span class="tag t-theme">題材金流</span>——國際成值關終於過了</strong></p>
+<ul>
+<li><strong>美光宣布提供 5 億美元策略融資給環球晶美國德州 300mm 廠、並簽 10 年供應長約</strong>（7/9 宣布、因休市 7/13 才反映）→ <strong>環球晶漲停 1,485，中美晶、台勝科、合晶、嘉晶同步漲停</strong>（6 檔漲停）。12 吋晶圓上半年已調漲達 10%。</li>
+<li>🆕 <strong>本欄追蹤三週的「國際成值」門檻，這次過了</strong>：日本 <strong>SUMCO 7/10 大漲 +15.4%（放量）</strong>、信越 +4.4%。先前 7/2–7/9 台股矽晶圓連續漲停時 SUMCO 都只是小漲甚至下跌（兩關未過），<strong>這是第一次國際對照組跟上</strong>。</li>
+<li>但要誠實說：合晶六月營收 YoY +14.1%、<strong>營收關仍未過</strong>——這仍是題材金流，只是題材現在有國際共振了。</li>
+</ul>
+<p><strong>🔥 塑化 <span class="tag t-theme">題材金流</span>——非電子的意外贏家</strong></p>
+<ul>
+<li><strong>小摩調升台塑四寶目標價</strong>、給「優於大盤」（南亞 200、台塑 60、台化 60、台塑化 65）→ <strong>南亞漲停收 199.5（幾乎貼著目標價）</strong>、台塑漲停、台化 +8.3%、台塑化 +7.3%。</li>
+<li>硬數據：台塑集團 <strong>Q2 稅後純益 642.76 億、YoY +45.5%</strong>；<strong>南亞上半年 EPS 5.17 元（歷史新高）、Q2 單季 EPS 3.37 元（歷史最高）</strong>。</li>
+<li>提醒：小摩同時警告 <strong>Q3 恐因油價回落較 Q2 降溫</strong>。目標價已到就是目標價已到。</li>
+</ul>
+<p><strong>💀 面板 <span class="tag t-weak">轉弱整理</span>——營收好、外資倒</strong></p>
+<ul>
+<li>群創 <strong>-6.6%</strong>（六月營收 217.03 億、<strong>YoY +17.25%，7/13 當天才公告</strong>、近 5 年同期新高）、友達 <strong>-7.0%</strong>（<strong>外資賣超 10.6 萬張、當日賣超冠軍</strong>）。</li>
+<li>又一組「營收創高、金流反向」。面板雙虎 6 月才創多年高點，7 月起外資連續倒貨。</li>
+</ul>
+<hr />
+<h2>外資 vs 投信</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">法人</th>
+<th style="vertical-align:middle;white-space:nowrap;text-align:center">買賣超（億元）</th>
+<th style="vertical-align:middle">註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">外資及陸資</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>-195.60</strong></td>
+<td style="vertical-align:middle"><strong>連七賣</strong>，累計逾 3,000 億</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">投信</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>+125.79</strong></td>
+<td style="vertical-align:middle">連買</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">自營商（合計）</td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center">-110.98</td>
+<td style="vertical-align:middle">自行買賣 -19.64／避險 -91.34</td>
+</tr>
+<tr>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>三大法人合計</strong></td>
+<td style="vertical-align:middle;white-space:nowrap;text-align:center"><strong>-180.80</strong></td>
+<td style="vertical-align:middle"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>外資賣超冠軍是友達 10.6 萬張</strong>，資金明顯轉進軍工／航空（漢翔）。外資連七賣、投信連買的「一買一賣」格局延續——<strong>這是真分歧，不是齊賣</strong>。值得注意的是：外資賣超金額（-195.60 億）比 7/9 的 -471.33 億大幅收斂，但這是因為今天開高，賣壓被高檔的買盤吃掉了；<strong>指數沒跌不代表賣壓變小。</strong></p>
+<hr />
+<h2>主流主題清單（收斂句）</h2>
+<ul>
+<li><strong>台股</strong>：載板/PCB（ABF 缺口 + 光模組 mSAP）｜矽晶圓（美光長約）｜塑化（外資調升）｜<strong>退潮：被動元件、記憶體、面板、CCL</strong></li>
+<li><strong>美股（7/10）</strong>：AI 晶片（NVDA 市值重返 5 兆）｜<strong>SK 海力士 ADR 掛牌吸金</strong>｜設備</li>
+<li><strong>亞股（7/13）</strong>：<strong>全面去槓桿——記憶體、被動、光通訊、PCB 無差別殺</strong>；逆勢＝油氣、醫藥、金融</li>
+</ul>
+<p><strong>收斂句</strong>：<strong>美股 7/10 還在慶祝 AI（費半 +0.06%、NVDA +4%），亞股 7/13 卻自己把 AI 硬體鏈殺了一輪。</strong>這不是跟跌美股，是亞洲自己的估值與籌碼問題——與 7/2、7/7 同一種病，這已經是三週內第三次。</p>
+<hr />
+<h2>國際金流全景（美/日/韓/A/港）</h2>
+<p><strong>🇺🇸 美股（7/10 收盤＝台股隔夜背景，平靜偏多）</strong></p>
+<ul>
+<li>道瓊 52,637.01（+0.29%）｜S&amp;P 500 7,575.39（+0.42%）｜Nasdaq 26,281.61（+0.29%）｜<strong>費半 SOX 12,967.20（+0.06%）</strong></li>
+<li>主流：NVDA <strong>+4.03% 收 210.93、市值重返 5 兆美元</strong>；AMD +2.04%（今年迄今 +160%）。</li>
+<li><strong>當天最大事件＝SK 海力士 ADR 在那斯達克掛牌</strong>：定價 149 美元、收 <strong>168.01（+12.76%）</strong>，<strong>募資 265 億美元、超越阿里 2014 年成為外企在美最大 IPO</strong>、逾 7 倍超額認購。同業被抽血：美光 -1.31%、英特爾 -2.40%。</li>
+<li><strong>這件事就是隔天韓股崩盤的伏筆</strong>：本尊的資金被 ADR 吸走。</li>
+</ul>
+<p><strong>🇰🇷 韓股（7/13）＝今天全球的震央</strong></p>
+<ul>
+<li><strong>KOSPI 6,806.93（-669.01，-8.95%）、盤中觸發熔斷暫停交易 20 分鐘、失守 7,000 點。</strong></li>
+<li><strong>SK 海力士 -15.37% 收 ₩1,845,000＝單日跌幅歷史紀錄</strong>（超過 2008 金融海嘯的 -14.93%）；三星電子 -10.7%。</li>
+<li>導火線：韓國 KIS 證券預估 SK 海力士 Q2 營業利益 60.4 兆韓元（YoY +556%，<strong>但低於市場共識 65 兆約 8%</strong>）＋ADR 掛牌後資金移轉＋新推出的個股槓桿 ETF 放大波動去槓桿＋中東情勢。</li>
+<li><strong>注意這個荒謬之處：營業利益年增 556% 叫做「不及預期」。當市場開始用這種標準殺股票，就是預期打太滿的訊號。</strong></li>
+</ul>
+<p><strong>🇯🇵 日股（7/13）</strong></p>
+<ul>
+<li>日經 225 <strong>67,242.73（-1,315.00，-1.92%）</strong>，三日來首度回落。</li>
+<li>重災：<strong>鎧俠 -12.86%、太陽誘電 -19.21%、村田 -8.06%、TDK -5.49%</strong>、Advantest -3.39%、東京威力科創 -2.25%。Advantest ＋鎧俠兩檔就壓低日經約 476 點。</li>
+</ul>
+<p><strong>🇨🇳 A 股（7/13）</strong></p>
+<ul>
+<li>上證 3,913.79（<strong>-2.06%</strong>）、深證成指 -3.48%、創業板 -3.1%；逾 4,600 檔下跌、逾 100 檔跌停。</li>
+<li><strong>記憶體最慘</strong>：兆易創新<strong>跌停</strong>（自 6/30 已跌逾 30%）、香農芯創 <strong>-20% 跌停</strong>；光通訊（亨通光電、烽火通信）跌停；MLCC 風華高科跌停。</li>
+<li>逆勢：醫藥、銀行、油氣。</li>
+</ul>
+<p><strong>🇭🇰 港股（7/13）——指數與內容嚴重背離</strong></p>
+<ul>
+<li>恒生 24,213.72（<strong>+0.16%</strong>）靠中石油等油股撐紅，但恒生科技 <strong>-0.96%</strong>。</li>
+<li>內容其實很慘：<strong>建滔積層板重挫逾 18%</strong>（南向資金淨賣超 32.15 億港元）、華虹 <strong>-7%</strong>、中芯 -1.63%、兆易創新 H 股 -15.29%、長飛光纖 -12.58%。</li>
+<li>港股同樣把「Rubin Ultra 延期」傳言反映在 PCB/CCL 上。</li>
+</ul>
+<hr />
+<h2>定性：這是修正、泡沫退潮，還是財測下修？</h2>
+<p><strong>都不是——這是「預期打太滿之後的去槓桿」，而且已經是三週內第三次。</strong></p>
+<p>三個判準逐一對照：</p>
+<ol>
+<li><strong>不是財測下修</strong>：南亞科毛利率 79.5%、EPS 14.66、明年 capex 2,000 億；台塑集團 Q2 +45.5%；六月營收全市場 52 家創近 5 年新高。<strong>基本面數據是這波以來最好的一批。</strong></li>
+<li><strong>不是流動性避險</strong>：錢沒離場——同一天有三檔漲停（臻鼎、南亞、合晶），外資只是把錢從「已經漲很多、沒有新報告背書」的地方，搬到「今天剛有外資報告背書」的地方。</li>
+<li><strong>是估值與籌碼的問題</strong>：SK 海力士營業利益 <strong>年增 556% 被當成利空</strong>；國巨漲價題材還在卻爆兩次違約交割；被動元件從日本到台灣到 A 股同步崩。<strong>當好消息不再能推動股價，剩下的就只有籌碼。</strong></li>
+</ol>
+<p><strong>位階判讀（本欄長期框架）</strong>：被動元件是<strong>起漲以來第二次集體摜破</strong>（7/7 第一次），這種族群的整理期通常比一般拉回長；記憶體則是<strong>第一次「利多出盡」級的測試</strong>——南亞科這種財報都收黑，代表市場已經把好消息 price in 完畢，接下來要靠 Q3 實際合約價來續命。</p>
+<hr />
+<h2>明日（7/14）觀察訊號</h2>
+<ul>
+<li><strong>偏多確認</strong>：韓股止穩（SK 海力士不再破底）＝今天全場的因；載板/PCB 有續航買盤而非一日行情；被動元件跌停打開、國巨止穩。</li>
+<li><strong>偏空警訊</strong>：韓股續崩、SK 海力士再破紀錄；被動元件第二根跌停；<strong>創高股繼續被殺</strong>——若六月營收創高的族群明天還是不漲，代表「營收創高」這個定價因子在這個階段已經失效，那才是真正該調整框架的訊號。</li>
+<li><strong>本週主軸</strong>：<strong>觀察「利多失效」會不會擴散</strong>。南亞科（史詩財報）、國巨（漲價 + 創高）、群創/友達（營收創高）今天全部收黑——這三個案例如果變成常態，就不是個股問題，是整個市場的風險偏好在轉向。</li>
+</ul>
+<hr />
+<p>⚠️ 本文內容僅為市場金流、產業趨勢及公開資訊之整理與觀察分享，不構成任何投資建議；所提個股、產業或走勢均不保證未來表現。投資有風險，請自行審慎評估，盈虧自負。</p>
+</main></div>
+</body></html>
