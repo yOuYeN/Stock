@@ -95,14 +95,14 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <p class="deck">你以為 AI 晶片只有 NVIDIA 在賺？其實雲端巨頭正自己設計「專用晶片」省錢，而每一顆背後都站著一家台灣設計服務廠。</p>
 <hr class="rule">
 <blockquote>
-<p><strong>一句話先講：</strong> AI 晶片不是只有 NVIDIA 的 GPU。雲端四巨頭（Google、Amazon、Meta、微軟）嫌 GPU 又貴又耗電，開始<strong>自己設計專屬晶片（ASIC）</strong>——但他們只會畫藍圖，得靠台灣的「設計服務廠」把藍圖變成能在台積電量產的真晶片。看懂這條「ASIC 設計服務」，就看懂創意、世芯為何能跟著 AI 一起噴。</p>
+<p><strong>一句話先講：</strong> AI 晶片不是只有 NVIDIA 的 GPU。雲端四巨頭 (Google、Amazon、Meta、微軟) 嫌 GPU 又貴又耗電，開始<strong>自己設計專屬晶片 (ASIC)</strong>——但他們只會畫藍圖，得靠台灣的「設計服務廠」把藍圖變成能在台積電量產的真晶片。看懂這條「ASIC 設計服務」，就看懂創意、世芯為何能跟著 AI 一起噴。</p>
 <p>這篇是<strong>族群地圖</strong>；想看源頭怎麼帶動單一龍頭，另有兩篇深挖：〈<a href="gucc-tpu.html"><strong>創意 × Google TPU</strong></a>〉〈<a href="mediatek-tpu.html"><strong>聯發科 × TPU 訂單</strong></a>〉。</p>
 </blockquote>
 <h2>先搞懂主角：ASIC 和 GPU 差在哪？</h2>
 <p>把 AI 運算想成「開餐廳」就懂了：</p>
 <ul>
-<li><strong>GPU（如 NVIDIA）＝一把瑞士刀</strong>：什麼菜都能切、什麼算法都能跑，萬用、強大——但也因此<strong>又貴又耗電</strong>，而且你買的功能有一大半根本用不到。自從黃仁勳的 GPU 崛起後，大家都在嫌「真的賣太貴了」，當然先搶瑞士刀應急。</li>
-<li><strong>ASIC（專用晶片）＝一把訂製菜刀</strong>：只為「切這一道菜」量身打造，把多餘功能全砍掉，<strong>又快、又省電、長期又便宜</strong>。等雲端巨頭確定自己天天要跑哪幾種 AI，與其一直跟 NVIDIA 買瑞士刀，不如打一把自己的專用菜刀。</li>
+<li><strong>GPU (如 NVIDIA)＝一把瑞士刀</strong>：什麼菜都能切、什麼算法都能跑，萬用、強大——但也因此<strong>又貴又耗電</strong>，而且你買的功能有一大半根本用不到。自從黃仁勳的 GPU 崛起後，大家都在嫌「真的賣太貴了」，當然先搶瑞士刀應急。</li>
+<li><strong>ASIC (專用晶片)＝一把訂製菜刀</strong>：只為「切這一道菜」量身打造，把多餘功能全砍掉，<strong>又快、又省電、長期又便宜</strong>。等雲端巨頭確定自己天天要跑哪幾種 AI，與其一直跟 NVIDIA 買瑞士刀，不如打一把自己的專用菜刀。</li>
 </ul>
 <blockquote>
 <p>一句話：<strong>GPU 在意「什麼都能算」，ASIC 在意「把我這件事算到最便宜」。</strong> 當 AI 從「實驗期」走進「天天大規模營運」，省成本就成了生死問題——這就是 ASIC 浪潮的起點。</p>
@@ -120,28 +120,28 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <tbody>
 <tr>
 <td style="text-align: left;">Google</td>
-<td style="text-align: left;">TPU</td>
+<td style="white-space:nowrap;text-align: left;">TPU</td>
 <td style="text-align: left;"><strong>先行者</strong>：最成熟的生態系，早 NVIDIA 近十年就練兵，自家框架專屬打造，目前訂單成長最有爆發性</td>
 </tr>
 <tr>
 <td style="text-align: left;">亞馬遜 AWS</td>
-<td style="text-align: left;">Trainium</td>
+<td style="white-space:nowrap;text-align: left;">Trainium</td>
 <td style="text-align: left;"><strong>實用主義</strong>：主打成本效益，目標是租給 AWS 雲端客戶用</td>
 </tr>
 <tr>
 <td style="text-align: left;">微軟 Microsoft</td>
-<td style="text-align: left;">Azure Maia</td>
+<td style="white-space:nowrap;text-align: left;">Azure Maia</td>
 <td style="text-align: left;"><strong>針對性優化</strong>：為 OpenAI 的模型而生</td>
 </tr>
 <tr>
 <td style="text-align: left;">Meta</td>
-<td style="text-align: left;">MTIA</td>
-<td style="text-align: left;"><strong>推薦系統</strong>：初期專攻廣告與貼文排序（DLRM），優化 FB／IG</td>
+<td style="white-space:nowrap;text-align: left;">MTIA</td>
+<td style="text-align: left;"><strong>推薦系統</strong>：初期專攻廣告與貼文排序 (DLRM)，優化 FB／IG</td>
 </tr>
 </tbody>
 </table></div>
 <blockquote>
-<p>其中 <strong>Google TPU 是目前所有巨頭裡，2026–2027 訂單成長最猛的指標</strong>——這也是為什麼台灣的創意、聯發科最受惠（〈<a href="gucc-tpu.html">創意 × Google TPU</a>〉〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉深挖細講）。</p>
+<p>其中 <strong>Google TPU 是目前所有巨頭裡，2026–2027 訂單成長最猛的指標</strong>——這也是為什麼台灣的創意、聯發科最受惠 (〈<a href="gucc-tpu.html">創意 × Google TPU</a>〉〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉深挖細講)。</p>
 </blockquote>
 <h2>關鍵：巨頭會出題，卻不會「蓋晶片」</h2>
 <p>這是整篇最重要的邏輯。Google 想要一顆專屬 AI 晶片，它有演算法、有規格，但它<strong>不會做晶片落地</strong>——把一張電路藍圖，變成能在台積電 3nm 產線上良率穩定、如期量產的實體晶片，是一門極深的工程。</p>
@@ -155,12 +155,12 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <p>CSP 自研晶片越多，這些「建築師」的訂單就越滿。這就是台股這條鏈跟著國際大哥喝湯的邏輯。</p>
 </blockquote>
 <h2>你以為龍頭是創意？其實全球真龍頭是博通</h2>
-<p>台灣人最熟的是創意、世芯，但放眼全球，ASIC 設計服務的兩大霸主是美國的 <strong>博通（Broadcom，AVGO）</strong> 與 <strong>邁威爾（Marvell，MRVL）</strong>：</p>
+<p>台灣人最熟的是創意、世芯，但放眼全球，ASIC 設計服務的兩大霸主是美國的 <strong>博通 (Broadcom，AVGO)</strong> 與 <strong>邁威爾 (Marvell，MRVL)</strong>：</p>
 <ul>
-<li><strong>博通</strong>：Google TPU 最重要的設計夥伴，手握最完整的高速傳輸（SerDes）與封裝 IP，是 CSP 自研晶片首選，市值衝上兆美元等級，被視為「除了 NVIDIA 之外、AI 軍火庫的第二供應商」。<strong>不過 2026 年起獨供地位被打破</strong>——博通財報首度證實 Google「移情別戀」、聯發科開始分食 TPU 訂單（見〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉）。</li>
+<li><strong>博通</strong>：Google TPU 最重要的設計夥伴，手握最完整的高速傳輸 (SerDes) 與封裝 IP，是 CSP 自研晶片首選，市值衝上兆美元等級，被視為「除了 NVIDIA 之外、AI 軍火庫的第二供應商」。<strong>不過 2026 年起獨供地位被打破</strong>——博通財報首度證實 Google「移情別戀」、聯發科開始分食 TPU 訂單 (見〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉)。</li>
 <li><strong>邁威爾</strong>：Amazon、微軟等多家 CSP 的客製晶片夥伴，資料中心客製矽的成長主力。</li>
 </ul>
-<p><strong>台灣三雄（創意、世芯、智原）是這條全球供應鏈裡離台積電最近、執行最快的亞洲據點</strong>——先進製程要跟台積電貼身協作，地利讓台廠卡在關鍵位置。看懂源頭龍頭在做什麼，才抱得住台廠這條主流。</p>
+<p><strong>台灣三雄 (創意、世芯、智原) 是這條全球供應鏈裡離台積電最近、執行最快的亞洲據點</strong>——先進製程要跟台積電貼身協作，地利讓台廠卡在關鍵位置。看懂源頭龍頭在做什麼，才抱得住台廠這條主流。</p>
 <h2>整條 IC 設計 / ASIC 產業鏈，誰受惠？</h2>
 <div class="tw"><table>
 <thead>
@@ -172,7 +172,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">上游 · 矽智財（IP 積木）</td>
+<td style="text-align: left;">上游 · 矽智財 (IP 積木)</td>
 <td style="text-align: left;">力旺 (3529)、晶心科 (6533)、M31 (6643)</td>
 <td style="text-align: left;">把記憶體、CPU 核心、傳輸介面做成標準「積木」授權出去，每顆 ASIC 都要拼一堆——賣鏟人裡的賣鏟人</td>
 </tr>
@@ -182,7 +182,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <td style="text-align: left;">把巨頭的藍圖變成可量產的實體晶片：實體設計、流片、量產管理，吃 CSP 自研晶片大浪</td>
 </tr>
 <tr>
-<td style="text-align: left;">中游 · 大型 IC 設計（自有品牌）</td>
+<td style="text-align: left;">中游 · 大型 IC 設計 (自有品牌)</td>
 <td style="text-align: left;">聯發科 (2454)、瑞昱 (2379)、聯詠 (3034)</td>
 <td style="text-align: left;">自己定義並賣晶片：聯發科吃手機 SoC 並切入 AI ASIC；瑞昱吃資料中心網通；聯詠吃面板驅動 IC</td>
 </tr>
@@ -194,7 +194,7 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 </tbody>
 </table></div>
 <blockquote>
-<p>看點：<strong>離 AI 資本支出越近、客製化程度越高的環節，金流越集中</strong>。ASIC 設計服務（創意、世芯）直接吃 CSP 自研晶片浪潮；矽智財（力旺）則是不管誰勝出都收授權金的「中立收費站」。</p>
+<p>看點：<strong>離 AI 資本支出越近、客製化程度越高的環節，金流越集中</strong>。ASIC 設計服務 (創意、世芯) 直接吃 CSP 自研晶片浪潮；矽智財 (力旺) 則是不管誰勝出都收授權金的「中立收費站」。</p>
 </blockquote>
 <h3>提醒：一顆 TPU 的供應鏈不只「設計服務」</h3>
 <p>法人點名的「Google TPU／ASIC 概念股」其實橫跨好幾個族群，設計服務只是其中一段。一顆 TPU 從藍圖到出貨，還要：</p>
@@ -210,16 +210,16 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 <h2>台灣三雄逐一看：定位差很大，別當成同一檔</h2>
 <p>三家都叫「ASIC 設計服務」，但體質天差地別——關鍵看<strong>跟誰最緊、客戶集中度、做哪段製程</strong>：</p>
 <ul>
-<li><strong>創意 3443</strong>：<strong>台積電的親兒子</strong>（約 35% 股權關係），與台積先進製程協作最緊、最穩，HPC／AI ASIC 接單能見度高。代價是<strong>量產比重拉高、毛利被稀釋</strong>（2025 毛利率由 32% 降到 25%），本益比給到 150 倍以上、容錯率低。（源頭故事見〈<a href="gucc-tpu.html">創意 × Google TPU</a>〉）</li>
-<li><strong>世芯-KY 3661</strong>：衝最猛、彈性最大，但<strong>大客戶高度集中</strong>，營收隨單一客戶拉貨節奏暴起暴落——2024 衝到 520 億高基期後，2025 回落到 309 億（年減約 40%）。看它要盯<strong>新案量產放量的時點</strong>，不是單季漲跌。</li>
-<li><strong>智原 3035</strong>：<strong>聯電系</strong>，走成熟製程與利基 ASIC。2025 營收靠量產衝上 180 億（年增 63%），但<strong>增收不增利</strong>——毛利率從 45% 殺到 27%、淨利反而年減約 30%，是「拚營收、犧牲毛利」的典型，最需盯獲利品質。</li>
+<li><strong>創意 3443</strong>：<strong>台積電的親兒子</strong> (約 35% 股權關係)，與台積先進製程協作最緊、最穩，HPC／AI ASIC 接單能見度高。代價是<strong>量產比重拉高、毛利被稀釋</strong> (2025 毛利率由 32% 降到 25%)，本益比給到 150 倍以上、容錯率低。(源頭故事見〈<a href="gucc-tpu.html">創意 × Google TPU</a>〉)</li>
+<li><strong>世芯-KY 3661</strong>：衝最猛、彈性最大，但<strong>大客戶高度集中</strong>，營收隨單一客戶拉貨節奏暴起暴落——2024 衝到 520 億高基期後，2025 回落到 309 億 (年減約 40%)。看它要盯<strong>新案量產放量的時點</strong>，不是單季漲跌。</li>
+<li><strong>智原 3035</strong>：<strong>聯電系</strong>，走成熟製程與利基 ASIC。2025 營收靠量產衝上 180 億 (年增 63%)，但<strong>增收不增利</strong>——毛利率從 45% 殺到 27%、淨利反而年減約 30%，是「拚營收、犧牲毛利」的典型，最需盯獲利品質。</li>
 </ul>
 <p>另外兩段不可忽略：</p>
 <ul>
-<li><strong>賣鏟人裡的賣鏟人——矽智財（IP）</strong>：<strong>力旺 3529</strong> 是 OTP 全球龍頭，純授權模式<strong>毛利率近 100%</strong>、獲利最乾淨；<strong>晶心科 6533</strong> 押注 RISC-V CPU；<strong>M31 6643</strong> 做高速傳輸介面 IP。每顆 ASIC 都得拼這些積木，是更上游、更中立的收費站。</li>
-<li><strong>大型品牌 IC 設計</strong>：<strong>聯發科 2454</strong> 是台股 IC 設計市值王（近 7 兆），手機 SoC 之外正切入 AI ASIC（見〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉）；<strong>瑞昱 2379</strong>（網通 IC）、<strong>聯詠 3034</strong>（驅動 IC，本益比僅 18 倍、屬消費循環）各有版圖，但主戰場不在 AI ASIC 這條主流上。</li>
+<li><strong>賣鏟人裡的賣鏟人——矽智財 (IP)</strong>：<strong>力旺 3529</strong> 是 OTP 全球龍頭，純授權模式<strong>毛利率近 100%</strong>、獲利最乾淨；<strong>晶心科 6533</strong> 押注 RISC-V CPU；<strong>M31 6643</strong> 做高速傳輸介面 IP。每顆 ASIC 都得拼這些積木，是更上游、更中立的收費站。</li>
+<li><strong>大型品牌 IC 設計</strong>：<strong>聯發科 2454</strong> 是台股 IC 設計市值王 (近 7 兆)，手機 SoC 之外正切入 AI ASIC (見〈<a href="mediatek-tpu.html">聯發科 × TPU 訂單</a>〉)；<strong>瑞昱 2379</strong> (網通 IC)、<strong>聯詠 3034</strong> (驅動 IC，本益比僅 18 倍、屬消費循環) 各有版圖，但主戰場不在 AI ASIC 這條主流上。</li>
 </ul>
-<h3>營收會說話：代表廠最新年報（FY2025）</h3>
+<h3>營收會說話：代表廠最新年報 (FY2025)</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -235,100 +235,100 @@ text-decoration:none;color:var(--ink);background:#fff;transition:.16s;}
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">創意 3443</td>
-<td style="text-align: left;">ASIC 設計服務（台積系）</td>
-<td style="text-align: right;">341 億</td>
-<td style="text-align: right;"><strong>+36%</strong></td>
-<td style="text-align: right;">37.7 億</td>
-<td style="text-align: right;">+9%</td>
-<td style="text-align: right;">25%</td>
-<td style="text-align: right;">156</td>
+<td style="white-space:nowrap;text-align: left;">創意 3443</td>
+<td style="text-align: left;">ASIC 設計服務 (台積系)</td>
+<td style="white-space:nowrap;text-align: right;">341 億</td>
+<td style="white-space:nowrap;text-align: right;"><strong>+36%</strong></td>
+<td style="white-space:nowrap;text-align: right;">37.7 億</td>
+<td style="white-space:nowrap;text-align: right;">+9%</td>
+<td style="white-space:nowrap;text-align: right;">25%</td>
+<td style="white-space:nowrap;text-align: right;">156</td>
 </tr>
 <tr>
-<td style="text-align: left;">世芯-KY 3661</td>
-<td style="text-align: left;">ASIC 設計服務（大客戶集中）</td>
-<td style="text-align: right;">309 億</td>
-<td style="text-align: right;"><strong>−40%</strong></td>
-<td style="text-align: right;">56.0 億</td>
-<td style="text-align: right;">−13%</td>
-<td style="text-align: right;">26%</td>
-<td style="text-align: right;">63</td>
+<td style="white-space:nowrap;text-align: left;">世芯-KY 3661</td>
+<td style="text-align: left;">ASIC 設計服務 (大客戶集中)</td>
+<td style="white-space:nowrap;text-align: right;">309 億</td>
+<td style="white-space:nowrap;text-align: right;"><strong>−40%</strong></td>
+<td style="white-space:nowrap;text-align: right;">56.0 億</td>
+<td style="white-space:nowrap;text-align: right;">−13%</td>
+<td style="white-space:nowrap;text-align: right;">26%</td>
+<td style="white-space:nowrap;text-align: right;">63</td>
 </tr>
 <tr>
-<td style="text-align: left;">智原 3035</td>
-<td style="text-align: left;">ASIC／矽智財（聯電系）</td>
-<td style="text-align: right;">180 億</td>
-<td style="text-align: right;"><strong>+63%</strong></td>
-<td style="text-align: right;">7.3 億</td>
-<td style="text-align: right;"><strong>−30%</strong></td>
-<td style="text-align: right;">27%</td>
-<td style="text-align: right;">69</td>
+<td style="white-space:nowrap;text-align: left;">智原 3035</td>
+<td style="text-align: left;">ASIC／矽智財 (聯電系)</td>
+<td style="white-space:nowrap;text-align: right;">180 億</td>
+<td style="white-space:nowrap;text-align: right;"><strong>+63%</strong></td>
+<td style="white-space:nowrap;text-align: right;">7.3 億</td>
+<td style="white-space:nowrap;text-align: right;"><strong>−30%</strong></td>
+<td style="white-space:nowrap;text-align: right;">27%</td>
+<td style="white-space:nowrap;text-align: right;">69</td>
 </tr>
 <tr>
-<td style="text-align: left;">信驊 5274</td>
-<td style="text-align: left;">伺服器管理晶片（BMC 龍頭）</td>
-<td style="text-align: right;">91 億</td>
-<td style="text-align: right;"><strong>+41%</strong></td>
-<td style="text-align: right;">39.3 億</td>
-<td style="text-align: right;"><strong>+53%</strong></td>
-<td style="text-align: right;"><strong>68%</strong></td>
-<td style="text-align: right;">169</td>
+<td style="white-space:nowrap;text-align: left;">信驊 5274</td>
+<td style="text-align: left;">伺服器管理晶片 (BMC 龍頭)</td>
+<td style="white-space:nowrap;text-align: right;">91 億</td>
+<td style="white-space:nowrap;text-align: right;"><strong>+41%</strong></td>
+<td style="white-space:nowrap;text-align: right;">39.3 億</td>
+<td style="white-space:nowrap;text-align: right;"><strong>+53%</strong></td>
+<td style="white-space:nowrap;text-align: right;"><strong>68%</strong></td>
+<td style="white-space:nowrap;text-align: right;">169</td>
 </tr>
 <tr>
-<td style="text-align: left;">力旺 3529</td>
-<td style="text-align: left;">矽智財 IP（OTP 龍頭）</td>
-<td style="text-align: right;">38.5 億</td>
-<td style="text-align: right;">+7%</td>
-<td style="text-align: right;">19.1 億</td>
-<td style="text-align: right;">+4%</td>
-<td style="text-align: right;"><strong>~100%</strong></td>
-<td style="text-align: right;">135</td>
+<td style="white-space:nowrap;text-align: left;">力旺 3529</td>
+<td style="text-align: left;">矽智財 IP (OTP 龍頭)</td>
+<td style="white-space:nowrap;text-align: right;">38.5 億</td>
+<td style="white-space:nowrap;text-align: right;">+7%</td>
+<td style="white-space:nowrap;text-align: right;">19.1 億</td>
+<td style="white-space:nowrap;text-align: right;">+4%</td>
+<td style="white-space:nowrap;text-align: right;"><strong>~100%</strong></td>
+<td style="white-space:nowrap;text-align: right;">135</td>
 </tr>
 <tr>
-<td style="text-align: left;">聯發科 2454</td>
-<td style="text-align: left;">大型 SoC（手機＋AI）</td>
-<td style="text-align: right;">5,960 億</td>
-<td style="text-align: right;">+12%</td>
-<td style="text-align: right;">1,053 億</td>
-<td style="text-align: right;">−1%</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">65</td>
+<td style="white-space:nowrap;text-align: left;">聯發科 2454</td>
+<td style="text-align: left;">大型 SoC (手機＋AI)</td>
+<td style="white-space:nowrap;text-align: right;">5,960 億</td>
+<td style="white-space:nowrap;text-align: right;">+12%</td>
+<td style="white-space:nowrap;text-align: right;">1,053 億</td>
+<td style="white-space:nowrap;text-align: right;">−1%</td>
+<td style="white-space:nowrap;text-align: right;">48%</td>
+<td style="white-space:nowrap;text-align: right;">65</td>
 </tr>
 <tr>
-<td style="text-align: left;">瑞昱 2379</td>
+<td style="white-space:nowrap;text-align: left;">瑞昱 2379</td>
 <td style="text-align: left;">網通 IC</td>
-<td style="text-align: right;">1,227 億</td>
-<td style="text-align: right;">+8%</td>
-<td style="text-align: right;">148 億</td>
-<td style="text-align: right;">−4%</td>
-<td style="text-align: right;">50%</td>
-<td style="text-align: right;">23</td>
+<td style="white-space:nowrap;text-align: right;">1,227 億</td>
+<td style="white-space:nowrap;text-align: right;">+8%</td>
+<td style="white-space:nowrap;text-align: right;">148 億</td>
+<td style="white-space:nowrap;text-align: right;">−4%</td>
+<td style="white-space:nowrap;text-align: right;">50%</td>
+<td style="white-space:nowrap;text-align: right;">23</td>
 </tr>
 <tr>
-<td style="text-align: left;">聯詠 3034</td>
-<td style="text-align: left;">驅動 IC／SoC（消費循環）</td>
-<td style="text-align: right;">1,007 億</td>
-<td style="text-align: right;">−2%</td>
-<td style="text-align: right;">163 億</td>
-<td style="text-align: right;">−20%</td>
-<td style="text-align: right;">38%</td>
-<td style="text-align: right;">18</td>
+<td style="white-space:nowrap;text-align: left;">聯詠 3034</td>
+<td style="text-align: left;">驅動 IC／SoC (消費循環)</td>
+<td style="white-space:nowrap;text-align: right;">1,007 億</td>
+<td style="white-space:nowrap;text-align: right;">−2%</td>
+<td style="white-space:nowrap;text-align: right;">163 億</td>
+<td style="white-space:nowrap;text-align: right;">−20%</td>
+<td style="white-space:nowrap;text-align: right;">38%</td>
+<td style="white-space:nowrap;text-align: right;">18</td>
 </tr>
 </tbody>
 </table></div>
 <blockquote>
-<p>數據：yfinance 各公司 FY2025 合併年報（淨利為稅後）。本益比為近 12 個月（trailing）。</p>
+<p>數據：yfinance 各公司 FY2025 合併年報 (淨利為稅後)。本益比為近 12 個月 (trailing)。</p>
 <p><strong>怎麼讀這張表？</strong></p>
-<p><strong>① 營收 YoY 看金流方向</strong>：創意（+36%）、智原（+63%）、信驊（+41%）營收創高，是金流眷顧的主流；世芯 −40% 是高基期＋大客戶節奏，看的是後續放量。</p>
+<p><strong>① 營收 YoY 看金流方向</strong>：創意 (+36%)、智原 (+63%)、信驊 (+41%) 營收創高，是金流眷顧的主流；世芯 −40% 是高基期＋大客戶節奏，看的是後續放量。</p>
 <p><strong>② 但營收漲不等於賺錢</strong>：智原增收 63%、淨利反掉 30%，這種「賠本衝量」要小心；對比信驊營收 +41%、淨利更跳 +53%、毛利率高達 68%，<strong>獲利品質天差地別</strong>。</p>
 <p><strong>③ 估值容錯率</strong>：創意、信驊、力旺本益比都在 130～170 倍，是「市場先把未來幾年成長付清」的貴股，財報一旦不如預期殺最兇；聯詠、瑞昱本益比 18～23 倍便宜，但因為不在 AI ASIC 主流上。</p>
 </blockquote>
-<h2>心法（不是報牌）</h2>
+<h2>心法 (不是報牌)</h2>
 <ul>
-<li><strong>看懂源頭</strong>：ASIC 的源頭動能是「<strong>雲端巨頭要省 GPU 的錢、自己打造專用晶片</strong>」。只要 CSP 還在大規模擴建 AI 算力、還想擺脫對 NVIDIA 的單一依賴，這條設計服務鏈就有單接。看國際（博通、邁威爾、Google TPU），你才抱得住。</li>
+<li><strong>看懂源頭</strong>：ASIC 的源頭動能是「<strong>雲端巨頭要省 GPU 的錢、自己打造專用晶片</strong>」。只要 CSP 還在大規模擴建 AI 算力、還想擺脫對 NVIDIA 的單一依賴，這條設計服務鏈就有單接。看國際 (博通、邁威爾、Google TPU)，你才抱得住。</li>
 <li><strong>三雄不是同一檔，別亂類比</strong>：跟台積最緊的是創意、彈性最大但波動最猛的是世芯、賠毛利衝量的是智原。買之前先搞清楚你買的是哪種體質。</li>
 <li><strong>營收創高 ≠ 賺錢</strong>：智原的教訓——增收 63% 卻淨利倒退。看 ASIC 設計服務，<strong>毛利率與淨利方向</strong>比單看營收更重要。</li>
-<li><strong>它終究是「接案＋循環」生意</strong>：ASIC 設計服務吃大客戶專案，專案有起有落（世芯就是活教材）。抱多久看「<strong>月營收還在不在創高、新案有沒有放量</strong>」，而不是看股價已經漲多少。本益比已在百倍以上的，更要留意財報落差的殺傷力。</li>
+<li><strong>它終究是「接案＋循環」生意</strong>：ASIC 設計服務吃大客戶專案，專案有起有落 (世芯就是活教材)。抱多久看「<strong>月營收還在不在創高、新案有沒有放量</strong>」，而不是看股價已經漲多少。本益比已在百倍以上的，更要留意財報落差的殺傷力。</li>
 </ul>
 <div class="warn">警語：本文內容僅為市場金流、產業趨勢及公開資訊之整理與觀察分享，不構成任何證券、期貨或其他金融商品之投資建議、買賣邀約、推薦或勸誘。文中所提個股、產業或市場走勢均不保證未來表現，亦不代表任何投資成果之承諾。投資具風險，請於投資前自行審慎評估，並依自身財務狀況與風險承受度，獨立做出投資決策，相關投資盈虧應由投資人自行負責。</div>
 </div></body></html>
